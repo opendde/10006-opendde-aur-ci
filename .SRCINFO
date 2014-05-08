@@ -1,7 +1,7 @@
 pkgbase = mdns-scan
 	pkgdesc = Scan mDNS/DNS-SD published services on the local network
 	pkgver = 0.5
-	pkgrel = 3
+	pkgrel = 4
 	url = http://0pointer.de/lennart/projects/mdns-scan/
 	arch = i686
 	arch = x86_64
