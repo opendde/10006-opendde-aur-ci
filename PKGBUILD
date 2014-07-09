@@ -33,6 +33,10 @@ package() {
   cd $pkgname-$pkgver
   make DESTDIR="$pkgdir" install
         
+  # Temp. workaround to relocate systemd unit
+  mkdir -p $pkgdir/usr/lib/systemd/system
+  mv $pkgdir/etc/systemd/system/razerd.service $pkgdir/usr/lib/systemd/system/
+
   install -Dm644 "$srcdir/$pkgname.desktop" "$pkgdir/usr/share/applications/$pkgname.desktop"
   install -Dm644 "$srcdir/razer.svg" "$pkgdir/usr/share/pixmaps/razer.svg"
   install -Dm644 "razer.conf" "$pkgdir/etc/razer.conf"
