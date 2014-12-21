@@ -1,7 +1,7 @@
 pkgbase = razercfg
 	pkgdesc = Next generation Razer device configuration tool
 	pkgver = 0.30
-	pkgrel = 3
+	pkgrel = 4
 	url = http://dual.bues.ch/cms/hacking/razercfg.html
 	install = razercfg.install
 	arch = any
