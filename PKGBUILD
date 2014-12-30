@@ -11,7 +11,7 @@ url="http://dual.bues.ch/cms/hacking/razercfg.html"
 license=('GPL')
 depends=('python' 'libusb')
 makedepends=('cmake')
-optdepends=('python-pyside: For qrazercfg')
+optdepends=('python-pyside: for the graphical qrazercfg tool only')
 backup=('etc/razer.conf')
 source=("http://bues.ch/$pkgname/$pkgname-$pkgver.tar.bz2"{,.asc}
         "$pkgname.desktop"
