@@ -1,4 +1,3 @@
-# $Id$
 # Maintainer: polyzen <polycitizen@gmail.com>
 # Contributor: Maxwell "Synthead" Pray <synthead@gmail.com>
 # Contributor: Fergus Symon <fergofrog@fergofrog.com>
