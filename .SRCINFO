@@ -1,6 +1,6 @@
 pkgbase = python-yapsy
 	pkgdesc = Yet Another Plugin SYstem
-	pkgver = 1.10.423
+	pkgver = 1.11.023
 	pkgrel = 1
 	url = http://yapsy.sourceforge.net/
 	arch = any
@@ -8,8 +8,8 @@ pkgbase = python-yapsy
 	makedepends = python-setuptools
 	depends = python
 	options = !emptydirs
-	source = http://pypi.python.org/packages/source/Y/Yapsy/Yapsy-1.10.423.tar.gz
-	md5sums = fb0e0afbfc1e6086e7d34e093cf3f294
+	source = http://pypi.python.org/packages/source/Y/Yapsy/Yapsy-1.11.023.tar.gz
+	md5sums = e311ddcc90bb82e0bcc40333a0202e85
 
 pkgname = python-yapsy
 
