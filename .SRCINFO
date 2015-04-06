@@ -1,7 +1,7 @@
 pkgbase = python-yapsy
 	pkgdesc = Yet Another Plugin SYstem
 	pkgver = 1.11.023
-	pkgrel = 1
+	pkgrel = 2
 	url = http://yapsy.sourceforge.net/
 	arch = any
 	license = BSD
