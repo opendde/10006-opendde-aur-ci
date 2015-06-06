@@ -5,11 +5,19 @@ pkgbase = python-yapsy
 	url = http://yapsy.sourceforge.net/
 	arch = any
 	license = BSD
+	makedepends = python
+	makedepends = python2
 	makedepends = python-setuptools
-	depends = python
+	makedepends = python2-setuptools
 	options = !emptydirs
-	source = http://pypi.python.org/packages/source/Y/Yapsy/Yapsy-1.11.123b.tar.gz
+	source = https://pypi.python.org/packages/source/Y/Yapsy/Yapsy-1.11.123b.tar.gz
 	md5sums = 7a8934158e9314c4f0f76606d082be8f
 
 pkgname = python-yapsy
+	depends = python
+	depends = python-setuptools
+
+pkgname = python2-yapsy
+	depends = python2
+	depends = python2-setuptools
 
