@@ -1,0 +1,15 @@
+pkgbase = polyclipping
+	pkgdesc = Polygon clipping library (also known as clipper)
+	pkgver = 6.1.3a
+	pkgrel = 1
+	url = http://sourceforge.net/projects/polyclipping/
+	arch = i686
+	arch = x86_64
+	license = custom
+	makedepends = cmake
+	depends = gcc-libs
+	source = http://downloads.sourceforge.net/polyclipping/clipper_ver6.1.3a.zip
+	md5sums = 4dcd043ce48de59714f07bd3ec7ac62b
+
+pkgname = polyclipping
+
