@@ -2,7 +2,7 @@
 pkgbase=python-yapsy
 pkgname=('python-yapsy' 'python2-yapsy')
 _pyname=Yapsy
-pkgver=1.11.123
+pkgver=1.10.423
 pkgrel=2
 pkgdesc='Yet Another Plugin SYstem'
 arch=('any')
@@ -10,9 +10,8 @@ url='http://yapsy.sourceforge.net/'
 license=('BSD')
 makedepends=('python' 'python2' 'python-setuptools' 'python2-setuptools')
 options=(!emptydirs)
-# `b` added upstream
-source=("https://pypi.python.org/packages/source/${_pyname:0:1}/${_pyname}/${_pyname}-${pkgver}b.tar.gz")
-md5sums=('7a8934158e9314c4f0f76606d082be8f')
+source=("https://pypi.python.org/packages/source/${_pyname:0:1}/${_pyname}/${_pyname}-${pkgver}.tar.gz")
+md5sums=('fb0e0afbfc1e6086e7d34e093cf3f294')
 
 prepare() {
   cd "${srcdir}/${_pyname}-${pkgver}"
