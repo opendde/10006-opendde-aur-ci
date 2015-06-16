@@ -3,24 +3,18 @@
 
 pkgname=python-pathtools
 pkgver=0.1.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Pattern matching and various utilities for file systems paths"
 arch=('any')
 url="https://pypi.python.org/pypi/pathtools/"
 license=('MIT')
 depends=('python')
 source=(https://pypi.python.org/packages/source/p/pathtools/pathtools-$pkgver.tar.gz)
-
-build() {
-  cd "$srcdir/pathtools-$pkgver"
-  python setup.py build
-}
+sha256sums=('7c35c5421a39bb82e58018febd90e3b6e5db34c5443aaaf742b3f33d4655f1c0')
 
 package() {
   cd "$srcdir/pathtools-$pkgver"
-  python setup.py install --root="${pkgdir}"
-  install -D -m644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  python setup.py install --root="$pkgdir/" --optimize=1
 }
 
 # vim:ts=2:sw=2:et:
-md5sums=('9a1af5c605768ea5804b03b734ff0f82')
