@@ -3,7 +3,7 @@ pkgbase=python-yapsy
 pkgname=('python-yapsy' 'python2-yapsy')
 _pyname=Yapsy
 pkgver=1.10.423
-pkgrel=2
+pkgrel=3
 pkgdesc='Yet Another Plugin SYstem'
 arch=('any')
 url='http://yapsy.sourceforge.net/'
@@ -22,7 +22,7 @@ package_python-yapsy() {
   depends=('python' 'python-setuptools')
   cd "${srcdir}/${_pyname}-${pkgver}"
   python3 setup.py install --root="${pkgdir}/" --optimize=1
-  install -D -m644 LICENSE.txt "${pkgdir}/usr/share/licenses/${pkgbase}/LICENSE"
+  install -D -m644 src3/package/LICENSE.txt "${pkgdir}/usr/share/licenses/${pkgbase}/LICENSE"
 }
 
 package_python2-yapsy() {
