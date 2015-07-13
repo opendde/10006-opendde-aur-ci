@@ -1,4 +1,5 @@
-# Maintainer: Vojtěch Aschenbrenner <v@asch.cz>
+# Maintainer: Frederik Schwan <frederik dot schwan at linux dot com>
+# Contributor: Vojtěch Aschenbrenner <v@asch.cz>
 
 pkgname=tpacpi-bat
 pkgver=2.2
