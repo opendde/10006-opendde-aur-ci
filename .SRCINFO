@@ -1,0 +1,17 @@
+pkgbase = slimit
+	pkgdesc = SlimIt - JavaScript minifier
+	pkgver = 0.8.1
+	pkgrel = 1
+	url = http://slimit.org/
+	arch = any
+	license = MIT
+	makedepends = python2-distribute
+	depends = python2
+	depends = python2-ply>=3.4
+	depends = python2-odict
+	provides = slimit
+	source = http://pypi.python.org/packages/source/s/slimit/slimit-0.8.1.zip
+	md5sums = 5f5f86e98940a1e71a6a30d501e0d733
+
+pkgname = slimit
+
