@@ -1,18 +1,19 @@
 # Maintainer: Llewelyn Trahaearn <WoefulDerelict at GMail dot com>
 # Contributor: falkTX <falktx at gmail dot com>
+
 pkgname=cadence
 pkgver=0.8.1
-pkgrel=2
-pkgdesc="JACK Audio Toolbox"
+pkgrel=3
+pkgdesc="JACK toolbox for audio production."
 arch=('i686' 'x86_64')
 url="http://kxstudio.sf.net/cadence"
 license=('GPL2')
 depends=('python-pyqt4' 'python-dbus' 'jack' 'qt4')
 optdepends=(
-  'a2jmidid: ALSA to Jack MIDI bridge'
-  'pulseaudio: pulseaudio to jack bridge'
+  'a2jmidid: ALSA to JACK MIDI bridge'
+  'pulseaudio: PulseAudio to JACK bridge'
   'python-rdflib: LADSPA-RDF support in Carla'
-  'zita-ajbridge: ALSA to Jack bridge'
+  'zita-ajbridge: ALSA to JACK bridge'
   'jack_capture: recording via Cadence-Render'
   'ladish: session management via Claudia'
 )
