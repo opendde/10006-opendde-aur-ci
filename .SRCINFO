@@ -1,0 +1,26 @@
+pkgbase = cadence
+	pkgdesc = JACK Audio Toolbox
+	pkgver = 0.8.1
+	pkgrel = 2
+	url = http://kxstudio.sf.net/cadence
+	install = cadence.install
+	arch = i686
+	arch = x86_64
+	license = GPL2
+	depends = python-pyqt4
+	depends = python-dbus
+	depends = jack
+	depends = qt4
+	optdepends = a2jmidid: ALSA to Jack MIDI bridge
+	optdepends = pulseaudio: pulseaudio to jack bridge
+	optdepends = python-rdflib: LADSPA-RDF support in Carla
+	optdepends = zita-ajbridge: ALSA to Jack bridge
+	optdepends = jack_capture: recording via Cadence-Render
+	optdepends = ladish: session management via Claudia
+	provides = cadence
+	conflicts = cadence
+	source = https://downloads.sourceforge.net/project/kxstudio/Releases/cadence/Cadence-0.8.1-src.tar.bz2
+	sha512sums = 333a8532859cfa4ca61446b6b136baa7930d2a9d1acbb55e2ee296998604c0e8e3effd5e21fe3154caf8ae6534190a0f592b070b671164ccfd647567ba2cc33f
+
+pkgname = cadence
+
