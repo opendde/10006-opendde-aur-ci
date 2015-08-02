@@ -1,6 +1,6 @@
 # Maintainer: Xiaodong Qi <qxd@bupt.edu.cn>
 pkgname=yage
-pkgver=0.1.0.20150802.1255.cebad67
+pkgver=0.1.0.20150802.1314.cf05dbb
 pkgrel=1
 epoch=0
 pkgdesc="Yet another Graphics Engine"
@@ -19,10 +19,10 @@ backup=()
 options=()
 install=
 changelog=
-_gitbuild='cebad67823feed0949c01bbc45428f476c781b94'
+_gitbuild='cf05dbbf8f1a4bba4e43af3a0dd1ece7ba31c120'
 source=("https://github.com/yet-another-graphics-engine/YaGE/archive/$_gitbuild.zip")
 noextract=()
-md5sums=('670f52c735e14cfcc606f3ecc82022ae')
+md5sums=('82bbab430fec663aa41caae1779e2ec6')
 
 prepare() {
 	return 0
