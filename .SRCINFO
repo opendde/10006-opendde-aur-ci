@@ -1,0 +1,21 @@
+pkgbase = python-pytoml
+	pkgdesc = A TOML-0.4.0 parser/writer for Python.
+	pkgver = 0.1.4
+	pkgrel = 1
+	url = http://pypi.python.org/pypi/pytoml
+	arch = any
+	license = MIT
+	checkdepends = python-nose
+	checkdepends = python2-nose
+	makedepends = python-setuptools
+	makedepends = python2-setuptools
+	makedepends = unzip
+	source = http://pypi.python.org/packages/source/p/pytoml/pytoml-0.1.4.zip
+	sha512sums = SKIP
+
+pkgname = python-pytoml
+	depends = python
+
+pkgname = python2-pytoml
+	depends = python2
+
