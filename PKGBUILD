@@ -3,13 +3,11 @@
 # Contributor: Valere Monseur <valere.monseur@ymail.com>
 
 pkgname=eid-mw
-pkgver=4.1.2
-_pkgver=$pkgver-v4.1.2
-_tarver=tcm227-258906
+pkgver=4.1.4
 pkgrel=1
 
 pkgdesc="The eID middleware for the Belgian eID"
-url="http://eid.belgium.be/"
+url=http://eid.belgium.be/
 arch=('i686' 'x86_64')
 license=('LGPL3')
 
@@ -18,17 +16,20 @@ optdepends=('firefox: extension for Belgian eid'
 	    'acsccid: ACS CCID smart card readers'
 	    'ccid: A generic USB Chip/Smart Card Interface Devices driver'
 	    'pcsc-tools: PC/SC smartcard tools')
-source=("http://eid.belgium.be/nl/binaries/$pkgname-$_pkgver.tar_$_tarver.gz")
-sha256sums=('7907cfe9f21e5b4f008badbd09d282ec201742aa5f1a67f6c1ec7e838bf7ab89')
+source=("https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz")
+sha256sums=('2996960ea92504c7cee1953ccf4520ba78979c7771645e2b2c1207f94be0a308')
+
+# SSL cert expired on July 29th; temporalily use --insecure
+DLAGENTS=('https::/usr/bin/curl -fLC - --retry 3 --retry-delay 3 -o %o %u --insecure')
 
 build() {
-	cd "$pkgname-$_pkgver"
+	cd "$pkgname-$pkgver-v$pkgver"
 	./configure --prefix=/usr --libexecdir=/usr/bin
 	make
 }
 
 package() {
-	cd "$pkgname-$_pkgver"
+	cd "$pkgname-$pkgver-v$pkgver"
 	make install DESTDIR="$pkgdir"
 }
      
