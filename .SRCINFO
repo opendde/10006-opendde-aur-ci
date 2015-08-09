@@ -1,0 +1,24 @@
+pkgbase = python-tinycss
+	pkgdesc = A complete yet simple CSS parser for Python.
+	pkgver = 0.3
+	pkgrel = 1
+	url = https://pypi.python.org/pypi/tinycss
+	arch = i686
+	arch = x86_64
+	license = BSD
+	makedepends = python
+	makedepends = python-setuptools
+	makedepends = cython
+	makedepends = python2
+	makedepends = python2-setuptools
+	makedepends = cython2
+	depends = python
+	source = http://pypi.python.org/packages/source/t/tinycss/tinycss-0.3.tar.gz
+	md5sums = 13999e54453d4fbc9d1539f4b95d235e
+
+pkgname = python-tinycss
+	depends = python
+
+pkgname = python2-tinycss
+	depends = python2
+
