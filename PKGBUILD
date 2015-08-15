@@ -2,12 +2,12 @@
 # Contributor: jfperini <@jfperini>
 
 pkgname=vocal
-pkgver=1.0+r294
+pkgver=1.0+r301
 pkgrel=1
 pkgdesc="Vocal Podcast Manager. Simple Podcast Client for the Modern Desktop."
 arch=('any')
 url="http://www.vocalproject.net"
-license=('GPL v3')
+license=('GPLv3')
 depends=('libnotify' 'libunity' 'libxml2' 'granite' 'gtk3' 'gstreamer' 'sqlite3' 'clutter-gtk' 'icu')
 makedepends=('bzr' 'vala' 'cmake')
 # provides=('')

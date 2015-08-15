@@ -1,11 +1,11 @@
 pkgbase = vocal
 	pkgdesc = Vocal Podcast Manager. Simple Podcast Client for the Modern Desktop.
-	pkgver = 1.0+r294
+	pkgver = 1.0+r301
 	pkgrel = 1
 	url = http://www.vocalproject.net
 	install = vocal.install
 	arch = any
-	license = GPL v3
+	license = GPLv3
 	makedepends = bzr
 	makedepends = vala
 	makedepends = cmake
