@@ -1,0 +1,13 @@
+pkgbase = blockdiag
+	pkgdesc = simple block-diagram image generator
+	pkgver = 1.5.3
+	pkgrel = 1
+	url = http://blockdiag.com/en/blockdiag/index.html
+	arch = any
+	license = apache
+	depends = python
+	source = https://bitbucket.org/blockdiag/blockdiag/get/1.5.3.tar.gz
+	md5sums = d38f0ff8609a3076e0d2b97cf5cf2d83
+
+pkgname = blockdiag
+
