@@ -2,17 +2,17 @@
 
 pkgname=seqdiag
 pkgver=0.9.5
-pkgrel=1
+pkgrel=2
 pkgdesc="simple sequence-diagram image generator"
 arch=("any")
 url="http://blockdiag.com/en/seqdiag/index.html"
 license=('apache')
-depends=('python')
-source=("https://pypi.python.org/packages/source/s/seqdiag/seqdiag-0.9.5.tar.gz")
-md5sums=("18b05be0467a23b7d8569a937d6de02b")
+depends=('python' 'python-webcolors' 'blockdiag' 'funcparserlib')
+source=("https://bitbucket.org/blockdiag/$pkgname/get/$pkgver.tar.gz")
+md5sums=("f63560275d4c267cc4a32b1d248d7146")
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
+  cd "$srcdir/blockdiag-$pkgname-"*
   python setup.py install --root="$pkgdir/" --optimize=1
 }
 
