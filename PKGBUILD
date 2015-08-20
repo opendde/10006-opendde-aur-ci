@@ -2,12 +2,12 @@
 
 pkgname=seqdiag
 pkgver=0.9.5
-pkgrel=2
+pkgrel=3
 pkgdesc="simple sequence-diagram image generator"
 arch=("any")
 url="http://blockdiag.com/en/seqdiag/index.html"
 license=('apache')
-depends=('python' 'python-webcolors' 'blockdiag' 'funcparserlib')
+depends=('python' 'blockdiag')
 source=("https://bitbucket.org/blockdiag/$pkgname/get/$pkgver.tar.gz")
 md5sums=("f63560275d4c267cc4a32b1d248d7146")
 
