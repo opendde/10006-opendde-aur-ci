@@ -2,12 +2,12 @@
 
 pkgname=blockdiag
 pkgver=1.5.3
-pkgrel=2
+pkgrel=3
 pkgdesc="simple block-diagram image generator"
 arch=("any")
 url="http://blockdiag.com/en/blockdiag/index.html"
 license=('apache')
-depends=('python' 'python-webcolors'  'funcparserlib')
+depends=('python' 'python-webcolors'  'funcparserlib' 'python-pillow')
 source=("https://bitbucket.org/$pkgname/$pkgname/get/$pkgver.tar.gz")
 md5sums=("d38f0ff8609a3076e0d2b97cf5cf2d83")
 
