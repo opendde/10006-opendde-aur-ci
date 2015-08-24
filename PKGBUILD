@@ -3,7 +3,7 @@
 # Other Contributors : trontonic for man page & license fixes.
 
 pkgname=deheader
-pkgver=1.1
+pkgver=1.2
 pkgrel=1
 
 pkgdesc='C and C++ file analyzer to determine which header enclusions can be removed while still allowing them to compile'
@@ -13,8 +13,8 @@ arch=('any')
 source=(http://www.catb.org/~esr/deheader/deheader-$pkgver.tar.gz
 	python3.patch
 	python2.patch)
-md5sums=('1be3e197af339f4f65524e62198beff4'
-         '4738b5b10899020ad00edf32b37cc597'
+md5sums=('c46e2a865f43db151ad026f819ab5644'
+         '7735d4ed133178b0114b6fb017a9e069'
          '62edf5aa5ee0206632ea2b50c22dfeb7')
 
 #change to python2, if you don't want python3

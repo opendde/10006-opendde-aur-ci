@@ -1,5 +1,5 @@
---- deheader	(original)
-+++ deheader	(refactored)
+--- ./deheader	(original)
++++ ./deheader	(refactored)
 @@ -30,7 +30,7 @@
  The last line of the output is a statistical summary of operations.
  """
@@ -34,26 +34,26 @@
                          elif InclusionMap.c_source(path):
                              sublist.append(path)
                  sublist.sort()
-@@ -1280,15 +1280,15 @@
-                 elif line.startswith("#include"):
-                     if verbosity >= PROGRESS_DEBUG:
-                         name = trim(line)
--                        print "deheader: %s includes %s" % (sourcefile, name)
-+                        print("deheader: %s includes %s" % (sourcefile, name))
-                     if ignore and ignore.search(line):
+@@ -1279,15 +1279,15 @@
+                     if f is not False:
                          if verbosity >= PROGRESS_DEBUG:
--                            print "deheader: ignoring %s (exclusion match with %s)." % (name, ignore.pattern)
-+                            print("deheader: ignoring %s (exclusion match with %s)." % (name, ignore.pattern))
-                         continue
-                     if not conditions or conditions == ["S_SPLINT_S"]:
-                         includes.append(line)
-                     elif verbose > 1:
--                        print "deheader: ignoring %s (conditional inclusion)" % name
-+                        print("deheader: ignoring %s (conditional inclusion)" % name)
+                             name = trim(f)
+-                            print "deheader: %s includes %s" % (sourcefile, name)
++                            print("deheader: %s includes %s" % (sourcefile, name))
+                         if ignore and ignore.search(line):
+                             if verbosity >= PROGRESS_DEBUG:
+-                                print "deheader: ignoring %s (exclusion match with %s)." % (name, ignore.pattern)
++                                print("deheader: ignoring %s (exclusion match with %s)." % (name, ignore.pattern))
+                             continue
+                         if not conditions or conditions == ["S_SPLINT_S"]:
+                             includes.append(line)
+                         elif verbose > 1:
+-                            print "deheader: ignoring %s (conditional inclusion)" % name
++                            print("deheader: ignoring %s (conditional inclusion)" % name)
                  for (r, c, h) in compiled:
                      if c.search(line):
                          if not set(h).issubset(set(seen)):
-@@ -1302,7 +1302,7 @@
+@@ -1301,7 +1301,7 @@
                  trimmedcount[ref] = trimmedcount.get(ref, 0) + 1
              for ref in trimmedcount:
                  if trimmedcount[ref] > 1:
@@ -62,7 +62,7 @@
      def forget(self, sourcefile, header):
          "Forget a header dependency."
          self.depends_on[sourcefile].remove(header)
-@@ -1353,7 +1353,7 @@
+@@ -1361,7 +1361,7 @@
          os.remove(derived)
      command = maker + " " + derived
      start = time.time()
@@ -71,7 +71,7 @@
      end = time.time()
      if verbosity >= COMMAND_DEBUG or (showerrs and os.WIFEXITED(status) and os.WEXITSTATUS(status) != 0):
          sys.stdout.write(output + "\n")
-@@ -1364,7 +1364,7 @@
+@@ -1372,7 +1372,7 @@
      else:
          explain = "succeeded"
      if verbosity >= PROGRESS_DEBUG:
@@ -80,7 +80,7 @@
      if os.path.exists(derived):
          os.remove(derived)
      return (status, end - start)
-@@ -1389,7 +1389,7 @@
+@@ -1397,7 +1397,7 @@
                      for required in requirements:
                          if required in header:
                              if verbosity >= PROGRESS_DEBUG:
@@ -89,7 +89,7 @@
                              retain += 1
                  if not retain:
                      saveit.remove_headers([header])
-@@ -1406,10 +1406,10 @@
+@@ -1414,10 +1414,10 @@
              baton.end()
      # Missing-require detection.  Can't be merged with duplicate-header
      # detection because this has to be done after unneeded headers are removed.
@@ -102,7 +102,7 @@
      return unneeded
  
  def deheader(sourcefile, maker, includes, requires, remove, verbose):
-@@ -1423,7 +1423,7 @@
+@@ -1431,7 +1431,7 @@
                                   includes[:], requires, verbose)
          if unneeded:
              for line in unneeded:
@@ -111,7 +111,7 @@
              if remove:
                  remove_it = SaveForModification(sourcefile)
                  remove_it.remove_headers(unneeded)
-@@ -1431,7 +1431,7 @@
+@@ -1439,7 +1439,7 @@
                  del remove_it
          return Summary([sourcefile], includes, unneeded)
      else:
@@ -120,7 +120,7 @@
          return Summary([sourcefile], includes, [])
  
  # After-action analysis starts here
-@@ -1478,7 +1478,7 @@
+@@ -1487,7 +1487,7 @@
          elif switch in ('-v', '--verbose'):
              verbose += 1
          elif switch in ('-V', '--version'):
@@ -129,7 +129,7 @@
              raise SystemExit(0)
          elif switch in ('-x', '--exclude'):
              exclusions.append(val)
-@@ -1504,7 +1504,7 @@
+@@ -1513,7 +1513,7 @@
          stats = Summary()
          for summary in summaries:
              stats = stats + summary
