@@ -1,12 +1,12 @@
 # Maintainer: Daichi Shinozaki <dsdseg@gmail.com>
 pkgname=python-influxdb
 pkgver=2.8.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Python client for InfluxDB"
 arch=('any')
 url="https://github.com/influxdb/influxdb-python/"
 license=('MIT')
-depends=('python' 'python-requests')
+depends=('python' 'python-requests' 'python-dateutil')
 makedepends=('python-setuptools')
 optdepends=('influxdb')
 options=(!emptydirs)
