@@ -1,49 +1,33 @@
-# PKGBUILD for hashdeep
 # Contributor: Uffe Jakobsen <uffe@uffe.org>
 # Maintainer: Uffe Jakobsen <uffe@uffe.org>
 pkgname=hashdeep
 pkgver=4.4
-pkgrel=1
-epoch=
+pkgrel=2
 pkgdesc="cross-platform tools to computer hashes, or message digests, for any number of files"
-arch=('i686', 'x86_64')
+arch=('i686' 'x86_64')
 url="https://github.com/jessek/hashdeep"
 license=('GPL')
-groups=()
-depends=()
-makedepends=()
-checkdepends=()
-optdepends=()
-provides=()
-conflicts=()
-replaces=()
-backup=()
-options=()
-install=
-changelog=
-source=(https://github.com/jessek/hashdeep/archive/release-4.4.tar.gz)
-noextract=()
-md5sums=('9ccfd5ba3e3d9cffddeb118cacad0c27')
+source=(git+https://github.com/jessek/hashdeep#commit=b88a659572925e748115bdc3f4f64cacf15f2061)
+sha256sums=('SKIP')
 
+pkgver() {
+  cd "$srcdir/$pkgname"
+  git describe --tags | sed 's/^v//; s/-/.r/; s/-/./'
+}
 
 prepare() {
-  cd "${srcdir}/${pkgname}-release-${pkgver}"
+  cd "$srcdir/$pkgname"
+  ./bootstrap.sh
 }
 
 build() {
-
-  cd "${srcdir}/${pkgname}-release-${pkgver}"
-  sh bootstrap.sh
-  sh configure
+  cd "$srcdir/$pkgname"
+  ./configure --prefix=/usr
   make
 }
 
-check() {
-  cd "${srcdir}/${pkgname}-release-${pkgver}"
-}
-
 package() {
-  cd "${srcdir}/${pkgname}-release-${pkgver}"
+  cd "$srcdir/$pkgname"
   make DESTDIR="$pkgdir/" install
 }
 
