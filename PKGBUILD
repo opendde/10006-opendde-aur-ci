@@ -2,18 +2,18 @@
 
 pkgname=sonic-pi
 _progname="Sonic Pi"
-pkgver=2.5.0
+pkgver=2.7.0
 pkgrel=1
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
 license=('MIT')
-depends=('bash' 'sed' 'ruby' 'libffi' 'lua' 'qscintilla-qt5' 'jack')
-makedepends=('cmake' 'supercollider' 'qt5-tools')
+depends=('bash' 'sed' 'ruby' 'libffi' 'lua' 'qscintilla-qt5' 'jack' 'supercollider')
+makedepends=('cmake' 'qt5-tools')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
 	'jack2: better jackd if you want to use without gui')
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.patch" "${pkgname}.png")
-md5sums=('c7d58868a9a8e739f1c76342fa700605' '1f3dd4c4b13afeff5c93d2addb887b62' 'e3ca8a1d949baf35cdf438c8d10159ff')
+md5sums=('0eeea502bb810194aa29bce6d003cf1e' '1ec49442c2933f49a3826dbb3368f558' 'e3ca8a1d949baf35cdf438c8d10159ff')
 
 prepare() {
 	cd "${srcdir}/${pkgname}-${pkgver}"

@@ -1,7 +1,21 @@
-diff -Naur sonic-pi-2.5.0/app/gui/qt/SonicPi.pro sonic-pi-2.5.0.new/app/gui/qt/SonicPi.pro
---- sonic-pi-2.5.0/app/gui/qt/SonicPi.pro	2015-04-13 21:22:07.000000000 +0200
-+++ sonic-pi-2.5.0.new/app/gui/qt/SonicPi.pro	2015-05-10 20:08:50.477523305 +0200
-@@ -97,7 +97,7 @@
+diff -Naur sonic-pi-2.7.0/app/gui/qt/SonicPi.pro sonic-pi-2.7.0.new/app/gui/qt/SonicPi.pro
+--- sonic-pi-2.7.0/app/gui/qt/SonicPi.pro	2015-09-10 15:29:43.000000000 +0200
++++ sonic-pi-2.7.0.new/app/gui/qt/SonicPi.pro	2015-09-14 19:24:03.890260279 +0200
+@@ -17,13 +17,6 @@
+ #
+ #-------------------------------------------------
+ 
+-# -- Change to match the location of QScintilla on your system
+-#
+- LIBS += -L/Users/sam/Downloads/tmp/QScintilla-gpl-2.9/Qt4Qt5 -lqscintilla2
+- INCLUDEPATH += /Users/sam/Downloads/tmp/QScintilla-gpl-2.9/Qt4Qt5
+- DEPENDPATH += /Users/sam/Downloads/tmp/QScintilla-gpl-2.9/Qt4Qt5
+-# --
+-
+ QT       += core gui concurrent network
+ 
+ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+@@ -102,7 +95,7 @@
  RC_FILE = SonicPi.rc
  
  ICON = images/app.icns
@@ -10,14 +24,3 @@ diff -Naur sonic-pi-2.5.0/app/gui/qt/SonicPi.pro sonic-pi-2.5.0.new/app/gui/qt/S
  
  win32 {
  	install_qsci.files = $$[QT_INSTALL_LIBS]\qscintilla2.dll
-diff -Naur sonic-pi-2.5.0/app/server/bin/compile-extensions.rb sonic-pi-2.5.0.new/app/server/bin/compile-extensions.rb
---- sonic-pi-2.5.0/app/server/bin/compile-extensions.rb	2015-04-13 21:22:07.000000000 +0200
-+++ sonic-pi-2.5.0.new/app/server/bin/compile-extensions.rb	2015-05-10 20:03:57.040160287 +0200
-@@ -40,7 +40,6 @@
-   File.expand_path(File.dirname(__FILE__) + '/../vendor/ruby-prof/ext/ruby_prof/'),
- 
-   File.expand_path(File.dirname(__FILE__) + '/../vendor/interception/ext/'),
--  File.expand_path(File.dirname(__FILE__) + '/../vendor/did_you_mean/ext/did_you_mean')
- ]
- 
- if os == :osx
