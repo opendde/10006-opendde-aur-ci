@@ -1,6 +1,6 @@
 pkgbase = eid-mw
 	pkgdesc = The eID middleware for the Belgian eID
-	pkgver = 4.1.4
+	pkgver = 4.1.9
 	pkgrel = 1
 	url = http://eid.belgium.be/
 	arch = i686
@@ -12,8 +12,10 @@ pkgbase = eid-mw
 	optdepends = acsccid: ACS CCID smart card readers
 	optdepends = ccid: A generic USB Chip/Smart Card Interface Devices driver
 	optdepends = pcsc-tools: PC/SC smartcard tools
-	source = https://dist.eid.belgium.be/continuous/sources/eid-mw-4.1.4-v4.1.4.tar.gz
-	sha256sums = 2996960ea92504c7cee1953ccf4520ba78979c7771645e2b2c1207f94be0a308
+	source = https://dist.eid.belgium.be/continuous/sources/eid-mw-4.1.9-v4.1.9.tar.gz
+	source = https://dist.eid.belgium.be/continuous/sources/eid-mw-4.1.9-v4.1.9.tar.gz.asc
+	md5sums= 8812f910124441c325aa056c6af2b5d5
+	md5sums= SKIP
 
 pkgname = eid-mw
 

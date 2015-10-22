@@ -4,7 +4,7 @@
 # Contributor: Valere Monseur <valere.monseur@ymail.com>
 
 pkgname=eid-mw
-pkgver=4.1.4
+pkgver=4.1.9
 pkgrel=1
 
 pkgdesc="The eID middleware for the Belgian eID"
@@ -17,12 +17,9 @@ optdepends=('firefox: extension for Belgian eid'
 	    'acsccid: ACS CCID smart card readers'
 	    'ccid: A generic USB Chip/Smart Card Interface Devices driver'
 	    'pcsc-tools: PC/SC smartcard tools')
-source=("https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz")
-sha256sums=('2996960ea92504c7cee1953ccf4520ba78979c7771645e2b2c1207f94be0a308')
-
-# SSL cert expired on July 29th; temporalily use --insecure
-DLAGENTS=('https::/usr/bin/curl -fLC - --retry 3 --retry-delay 3 -o %o %u --insecure')
-
+source=("https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc})
+md5sums=('8812f910124441c325aa056c6af2b5d5' 'SKIP')
+validpgpkeys=('D95426E309C0492990D8E8E2824A5E0010A04D46')
 build() {
 	cd "$pkgname-$pkgver-v$pkgver"
 	./configure --prefix=/usr --libexecdir=/usr/bin
