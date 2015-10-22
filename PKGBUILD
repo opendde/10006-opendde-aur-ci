@@ -1,4 +1,5 @@
-# Maintainer: Alad Wenter <https://wiki.archlinux.org/index.php/Special:EmailUser/Alad>
+# Maintainer: Emil Vanherp <emil DOT vanherp @ hot mail DOT com>
+# Contributor: Alad Wenter <https://wiki.archlinux.org/index.php/Special:EmailUser/Alad>
 # Contributor: Xavier D. <magicrhesus@ouranos.be>
 # Contributor: Valere Monseur <valere.monseur@ymail.com>
 
