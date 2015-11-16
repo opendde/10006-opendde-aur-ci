@@ -1,7 +1,7 @@
 pkgbase = cadence
 	pkgdesc = JACK toolbox for audio production.
 	pkgver = 0.8.1
-	pkgrel = 3
+	pkgrel = 4
 	url = http://kxstudio.sf.net/cadence
 	install = cadence.install
 	arch = i686
@@ -12,7 +12,7 @@ pkgbase = cadence
 	depends = jack
 	depends = qt4
 	optdepends = a2jmidid: ALSA to JACK MIDI bridge
-	optdepends = pulseaudio: PulseAudio to JACK bridge
+	optdepends = pulseaudio-jack: PulseAudio to JACK bridge
 	optdepends = python-rdflib: LADSPA-RDF support in Carla
 	optdepends = zita-ajbridge: ALSA to JACK bridge
 	optdepends = jack_capture: recording via Cadence-Render
