@@ -1,6 +1,6 @@
-diff -Naur sonic-pi-2.7.0/app/gui/qt/SonicPi.pro sonic-pi-2.7.0.new/app/gui/qt/SonicPi.pro
---- sonic-pi-2.7.0/app/gui/qt/SonicPi.pro	2015-09-10 15:29:43.000000000 +0200
-+++ sonic-pi-2.7.0.new/app/gui/qt/SonicPi.pro	2015-09-14 19:24:03.890260279 +0200
+diff -Naur sonic-pi-2.8.0/app/gui/qt/SonicPi.pro sonic-pi-2.8.0.new/app/gui/qt/SonicPi.pro
+--- sonic-pi-2.8.0/app/gui/qt/SonicPi.pro	2015-11-20 22:26:11.000000000 +0100
++++ sonic-pi-2.8.0.new/app/gui/qt/SonicPi.pro	2015-11-29 12:15:26.456112066 +0100
 @@ -17,13 +17,6 @@
  #
  #-------------------------------------------------
@@ -15,7 +15,7 @@ diff -Naur sonic-pi-2.7.0/app/gui/qt/SonicPi.pro sonic-pi-2.7.0.new/app/gui/qt/S
  QT       += core gui concurrent network
  
  greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
-@@ -102,7 +95,7 @@
+@@ -106,7 +99,7 @@
  RC_FILE = SonicPi.rc
  
  ICON = images/app.icns

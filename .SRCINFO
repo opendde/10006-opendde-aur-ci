@@ -1,6 +1,6 @@
 pkgbase = sonic-pi
 	pkgdesc = A music-centric programming environment, originally built for the raspberry pi.
-	pkgver = 2.7.0
+	pkgver = 2.8.0
 	pkgrel = 1
 	url = http://sonic-pi.net/
 	arch = i686
@@ -18,11 +18,11 @@ pkgbase = sonic-pi
 	depends = supercollider
 	optdepends = qjackctl: for graphical jackd spawning/configuration
 	optdepends = jack2: better jackd if you want to use without gui
-	source = https://github.com/samaaron/sonic-pi/archive/v2.7.0.tar.gz
+	source = https://github.com/samaaron/sonic-pi/archive/v2.8.0.tar.gz
 	source = sonic-pi.patch
 	source = sonic-pi.png
-	md5sums = 0eeea502bb810194aa29bce6d003cf1e
-	md5sums = 1ec49442c2933f49a3826dbb3368f558
+	md5sums = 206556bdb57815d073eff8d43bd56844
+	md5sums = 7787defb7498a580429a047234644514
 	md5sums = e3ca8a1d949baf35cdf438c8d10159ff
 
 pkgname = sonic-pi

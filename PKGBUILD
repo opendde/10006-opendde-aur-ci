@@ -2,7 +2,7 @@
 
 pkgname=sonic-pi
 _progname="Sonic Pi"
-pkgver=2.7.0
+pkgver=2.8.0
 pkgrel=1
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
@@ -13,7 +13,7 @@ makedepends=('cmake' 'qt5-tools')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
 	'jack2: better jackd if you want to use without gui')
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.patch" "${pkgname}.png")
-md5sums=('0eeea502bb810194aa29bce6d003cf1e' '1ec49442c2933f49a3826dbb3368f558' 'e3ca8a1d949baf35cdf438c8d10159ff')
+md5sums=('206556bdb57815d073eff8d43bd56844' '7787defb7498a580429a047234644514' 'e3ca8a1d949baf35cdf438c8d10159ff')
 
 prepare() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
@@ -36,14 +36,14 @@ package() {
 
     install -D -m644 "${srcdir}/${pkgname}.png" "${pkgdir}/usr/share/pixmaps/${pkgname}.png"
 
-	install -d -m 755 "${pkgdir}/usr/bin/" 	
+	install -d -m 755 "${pkgdir}/usr/bin/"
 	printf "#!/bin/sh
 echo \"Remember to start jackd (using qjackctl or some other program) before launching!\"
 /opt/${pkgname}/app/gui/qt/${pkgname}
 " >> "${pkgdir}/usr/bin/${pkgname}"
 	chmod +x "${pkgdir}/usr/bin/${pkgname}"
 
-	install -d -m 755 "${pkgdir}/usr/share/applications/" 
+	install -d -m 755 "${pkgdir}/usr/share/applications/"
 	printf "[Desktop Entry]
 Version=${pkgver}
 Type=Application
