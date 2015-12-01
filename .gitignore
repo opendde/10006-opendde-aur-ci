@@ -1,0 +1,7 @@
+pkg
+src
+first-*.tar.gz
+python-first-*.pkg.tar.xz
+python-first-*.src.tar.gz
+.AURINFO
+
