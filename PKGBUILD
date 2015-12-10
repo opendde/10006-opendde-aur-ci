@@ -1,8 +1,8 @@
-# Maintainer: Xentec <artificial.i7 at gmail dot com>
+# Maintainer: Xentec <xentec at aix0 dot eu>
 
 pkgname=entityx
 pkgver=1.2.0
-pkgrel=2
+pkgrel=3
 pkgdesc="A fast, type-safe C++ Entity-Component system"
 arch=('i686' 'x86_64')
 url="https://github.com/alecthomas/entityx"
