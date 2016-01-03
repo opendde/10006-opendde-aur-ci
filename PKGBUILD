@@ -1,8 +1,7 @@
 # Maintainer: Christoph Scholz <christoph.scholz@gmail.com>
-
 pkgname=sonic-pi
 _progname="Sonic Pi"
-pkgver=2.8.0
+pkgver=2.9.0
 pkgrel=1
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
@@ -12,12 +11,12 @@ depends=('bash' 'sed' 'ruby' 'libffi' 'lua' 'qscintilla-qt5' 'jack' 'supercollid
 makedepends=('cmake' 'qt5-tools')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
 	'jack2: better jackd if you want to use without gui')
-source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.patch" "${pkgname}.png")
-md5sums=('206556bdb57815d073eff8d43bd56844' '7787defb7498a580429a047234644514' 'e3ca8a1d949baf35cdf438c8d10159ff')
+source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.png")
+md5sums=('4b3ab8346a25e2327967cb61cb9270b8' 'e3ca8a1d949baf35cdf438c8d10159ff')
 
 prepare() {
-	cd "${srcdir}/${pkgname}-${pkgver}"
-	patch -p1 < "${srcdir}/${pkgname}.patch"
+	cd "${srcdir}/${pkgname}-${pkgver}/app/gui/qt"
+	sed -i 's/lqscintilla2/lqt5scintilla2/g' SonicPi.pro
 }
 
 build() {
