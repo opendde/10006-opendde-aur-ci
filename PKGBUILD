@@ -2,7 +2,7 @@
 pkgname=sonic-pi
 _progname="Sonic Pi"
 pkgver=2.9.0
-pkgrel=2
+pkgrel=3
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -17,7 +17,7 @@ md5sums=('4b3ab8346a25e2327967cb61cb9270b8' 'e3ca8a1d949baf35cdf438c8d10159ff')
 
 prepare() {
 	cd "${srcdir}/${pkgname}-${pkgver}/app/gui/qt"
-	sed -i 's/lqscintilla2/lqt5scintilla2/g' SonicPi.pro
+	sed -i 's/lqscintilla2/&-qt5/g' SonicPi.pro
 }
 
 build() {
