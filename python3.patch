@@ -1,15 +1,15 @@
 --- ./deheader	(original)
 +++ ./deheader	(refactored)
-@@ -30,7 +30,7 @@
- The last line of the output is a statistical summary of operations.
+@@ -31,7 +31,7 @@
  """
+ # SPDX-License-Identifier: BSD-2-Clause
  
--import sys, os, getopt, time, re, operator, commands
-+import sys, os, getopt, time, re, operator, subprocess
+-import sys, os, getopt, time, re, operator, commands, subprocess
++import sys, os, getopt, time, re, operator, subprocess, subprocess
  
  BATON_DEBUG    = 1
  PROGRESS_DEBUG = 2
-@@ -1243,20 +1243,20 @@
+@@ -1244,20 +1244,20 @@
              if not os.path.isdir(root):
                  if excludes and excludes.search(root):
                      if verbose > 1:
@@ -34,7 +34,7 @@
                          elif InclusionMap.c_source(path):
                              sublist.append(path)
                  sublist.sort()
-@@ -1279,15 +1279,15 @@
+@@ -1280,15 +1280,15 @@
                      if f is not False:
                          if verbosity >= PROGRESS_DEBUG:
                              name = trim(f)
@@ -53,7 +53,7 @@
                  for (r, c, h) in compiled:
                      if c.search(line):
                          if not set(h).issubset(set(seen)):
-@@ -1301,7 +1301,7 @@
+@@ -1302,7 +1302,7 @@
                  trimmedcount[ref] = trimmedcount.get(ref, 0) + 1
              for ref in trimmedcount:
                  if trimmedcount[ref] > 1:
@@ -62,16 +62,16 @@
      def forget(self, sourcefile, header):
          "Forget a header dependency."
          self.depends_on[sourcefile].remove(header)
-@@ -1361,7 +1361,7 @@
-         os.remove(derived)
-     command = maker + " " + derived
+@@ -1367,7 +1367,7 @@
+     if len(subdir) > 0:
+         os.chdir(subdir)
      start = time.time()
 -    (status, output) = commands.getstatusoutput(command)
 +    (status, output) = subprocess.getstatusoutput(command)
      end = time.time()
+     os.chdir(olddir)
      if verbosity >= COMMAND_DEBUG or (showerrs and os.WIFEXITED(status) and os.WEXITSTATUS(status) != 0):
-         sys.stdout.write(output + "\n")
-@@ -1372,7 +1372,7 @@
+@@ -1379,7 +1379,7 @@
      else:
          explain = "succeeded"
      if verbosity >= PROGRESS_DEBUG:
@@ -79,17 +79,17 @@
 +        print("deheader: %s%s %s." % (source, msg, explain))
      if os.path.exists(derived):
          os.remove(derived)
-     return (status, end - start)
-@@ -1397,7 +1397,7 @@
+     elif os.path.exists("CMakeList.txt"):
+@@ -1406,7 +1406,7 @@
                      for required in requirements:
                          if required in header:
                              if verbosity >= PROGRESS_DEBUG:
--                                print "deheader: in %s, %s prevents uninclusion of %s" % (sourcefile, trigger, trim(header))
-+                                print("deheader: in %s, %s prevents uninclusion of %s" % (sourcefile, trigger, trim(header)))
+-                                print "deheader: in %s, %s prevents uninclusion of %s" % (os.path.join(subdir, sourcefile), trigger, trim(header))
++                                print("deheader: in %s, %s prevents uninclusion of %s" % (os.path.join(subdir, sourcefile), trigger, trim(header)))
                              retain += 1
                  if not retain:
-                     saveit.remove_headers([header])
-@@ -1414,10 +1414,10 @@
+                     saveit.remove_headers(unneeded + [header])
+@@ -1423,10 +1423,10 @@
              baton.end()
      # Missing-require detection.  Can't be merged with duplicate-header
      # detection because this has to be done after unneeded headers are removed.
@@ -97,21 +97,21 @@
 +    stillhere = list(map(trim, includes))
      for (requirement, trigger) in requires:
          if not set(requirement).issubset(stillhere):
--            print "deheader: in %s, %s portability requires %s." % (sourcefile, trigger, ",".join(requirement))
-+            print("deheader: in %s, %s portability requires %s." % (sourcefile, trigger, ",".join(requirement)))
+-            print "deheader: in %s, %s portability requires %s." % (os.path.join(subdir, sourcefile), trigger, ",".join(requirement))
++            print("deheader: in %s, %s portability requires %s." % (os.path.join(subdir, sourcefile), trigger, ",".join(requirement)))
      return unneeded
  
  def deheader(sourcefile, maker, includes, requires, remove, verbose):
-@@ -1431,7 +1431,7 @@
-                                  includes[:], requires, verbose)
+@@ -1445,7 +1445,7 @@
+                                  includes[:], requires, verbose, subdir=subdir)
          if unneeded:
              for line in unneeded:
--                print "deheader: remove %s from %s" % (trim(line), sourcefile)
-+                print("deheader: remove %s from %s" % (trim(line), sourcefile))
+-                print "deheader: remove %s from %s" % (trim(line), os.path.join(subdir, sourcefile))
++                print("deheader: remove %s from %s" % (trim(line), os.path.join(subdir, sourcefile)))
              if remove:
-                 remove_it = SaveForModification(sourcefile)
+                 remove_it = SaveForModification(os.path.join(subdir, sourcefile))
                  remove_it.remove_headers(unneeded)
-@@ -1439,7 +1439,7 @@
+@@ -1453,7 +1453,7 @@
                  del remove_it
          return Summary([sourcefile], includes, unneeded)
      else:
@@ -120,7 +120,7 @@
          return Summary([sourcefile], includes, [])
  
  # After-action analysis starts here
-@@ -1487,7 +1487,7 @@
+@@ -1501,7 +1501,7 @@
          elif switch in ('-v', '--verbose'):
              verbose += 1
          elif switch in ('-V', '--version'):
@@ -129,7 +129,7 @@
              raise SystemExit(0)
          elif switch in ('-x', '--exclude'):
              exclusions.append(val)
-@@ -1513,7 +1513,7 @@
+@@ -1527,7 +1527,7 @@
          stats = Summary()
          for summary in summaries:
              stats = stats + summary
