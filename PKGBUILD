@@ -2,7 +2,7 @@
 
 pkgname=pan
 pkgver=0.139
-pkgrel=4
+pkgrel=5
 pkgdesc="A powerful Newsgroup Article reader"
 arch=('i686' 'x86_64')
 url="http://pan.rebelbase.com/"
@@ -19,7 +19,7 @@ build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
 
   #./configure --prefix=/usr --with-gtk3 --without-gtkspell --with-gnutls
-  ./configure --prefix=/usr --disable-gkr --without-dbus --with-gnutls
+  CXXFLAGS="-D_GLIBCXX_USE_CXX11_ABI=0" ./configure --prefix=/usr --disable-gkr --without-dbus --with-gnutls
   make
 }
 
