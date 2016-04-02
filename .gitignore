@@ -1,0 +1,7 @@
+pkg/
+src/
+jinja2-time-*.tar.gz
+python-jinja-time-*.pkg.tar.xz
+python2-jinja-time-*.pkg.tar.xz
+python-jinja-time-*.src.tar.gz
+.AURINFO
