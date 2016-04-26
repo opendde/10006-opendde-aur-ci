@@ -1,8 +1,8 @@
 # Maintainer: Christoph Scholz <christoph.scholz@gmail.com>
 pkgname=sonic-pi
 _progname="Sonic Pi"
-pkgver=2.9.0
-pkgrel=3
+pkgver=2.10.0
+pkgrel=1
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -13,11 +13,11 @@ optdepends=('qjackctl: for graphical jackd spawning/configuration'
 	'jack2: better jackd if you want to use without gui'
 	'sc3-plugins-git: plugins for supercollider')
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.png")
-md5sums=('4b3ab8346a25e2327967cb61cb9270b8' 'e3ca8a1d949baf35cdf438c8d10159ff')
+md5sums=('10cf597f124a32a70b7dfe5fe8ee1ccf' 'e3ca8a1d949baf35cdf438c8d10159ff')
 
 prepare() {
 	cd "${srcdir}/${pkgname}-${pkgver}/app/gui/qt"
-	sed -i 's/lqscintilla2/&-qt5/g' SonicPi.pro
+	sed -i 's/lqt5scintilla2/lqscintilla2-qt5/g' SonicPi.pro
 }
 
 build() {
