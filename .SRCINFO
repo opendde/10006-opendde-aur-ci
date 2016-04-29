@@ -10,7 +10,7 @@ pkgbase = python-yapsy
 	makedepends = python-setuptools
 	makedepends = python2-setuptools
 	options = !emptydirs
-	source = https://pypi.python.org/packages/source/Y/Yapsy/Yapsy-1.11.223.tar.gz
+	source = https://pypi.io/packages/source/Y/Yapsy/Yapsy-1.11.223.tar.gz
 	md5sums = d8b71cd35e6daa36ae83f76874f450aa
 
 pkgname = python-yapsy
