@@ -4,7 +4,7 @@
 # Contributor: Valere Monseur <valere.monseur@ymail.com>
 
 pkgname=eid-mw
-pkgver=4.1.12
+pkgver=4.1.18
 pkgrel=1
 
 pkgdesc="The eID middleware for the Belgian eID"
@@ -18,7 +18,7 @@ optdepends=('firefox: extension for Belgian eid'
 	    'ccid: A generic USB Chip/Smart Card Interface Devices driver'
 	    'pcsc-tools: PC/SC smartcard tools')
 source=("https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc})
-md5sums=('2678efdac0ebcf0c008b8850269720fb'
+md5sums=('d27be9ac6f63e864c539c50b3db76763'
          'SKIP')
 validpgpkeys=('D95426E309C0492990D8E8E2824A5E0010A04D46')
 build() {
