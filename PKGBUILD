@@ -3,7 +3,7 @@
 pkgname=sonic-pi
 _progname="Sonic Pi"
 pkgver=2.10.0
-pkgrel=3
+pkgrel=4
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -13,7 +13,7 @@ depends=('lua' 'qscintilla-qt5' 'jack' 'supercollider' 'ruby-hamster' 'ruby-wave
 makedepends=('cmake' 'qt5-tools' 'sed')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
 			'jack2: better jackd if you want to use without gui'
-			'sc3-plugins-git: plugins for supercollider')
+			'supercollider-with-plugins: includes sc3-plugins e.g. piano synth')
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.png" "${pkgname}.desktop"
 		"${pkgname}.install" "01-remove-rpi-volume.patch" "02-do-no-require-unused-ruby-gems.patch"
 		"03-use-debian-gems.patch" "04-rename-ruby-beautify-legacy.patch" "06-paths.patch" "07-examples-path.patch")
