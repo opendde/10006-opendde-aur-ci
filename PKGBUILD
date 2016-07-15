@@ -1,9 +1,9 @@
-# Maintainer: polyzen <polycitizen@gmail.com>
+# Maintainer: Daniel M. Capella <polyzen@archlinux.info>
 # Contributor: Maxwell "Synthead" Pray <synthead@gmail.com>
 # Contributor: Fergus Symon <fergofrog@fergofrog.com>
 
 pkgname=razercfg
-pkgver=0.34
+pkgver=0.35
 pkgrel=1
 pkgdesc='Next generation Razer device configuration tool'
 arch=('any')
@@ -16,7 +16,7 @@ backup=('etc/razer.conf')
 source=("http://bues.ch/razercfg/razercfg-$pkgver.tar.bz2"{,.asc}
         'tmpfile.conf')
 install=razercfg.install
-sha256sums=('8ecbb1b59f8c648a937ab05d228d9faebef4cf3ea463dc8170a5d19556423bba'
+sha256sums=('2f07c5f1b8f775208f67f2b949e00117d22bf8abb4c5f9185c6f55c1b67fc5de'
             'SKIP'
             'a6fa99646938e57bd8be18a38de86ccae5bb19c78e571265db5987a46d0bf21a')
 validpgpkeys=('757FAB7CED1814AE15B4836E5FB027474203454C') # Michael Busch
