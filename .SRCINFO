@@ -1,5 +1,5 @@
 pkgbase = vocal
-	pkgdesc = Simple Podcast Client for the Modern Desktop
+	pkgdesc = Podcast Client for the Modern Desktop
 	pkgver = 1.0
 	pkgrel = 1
 	url = http://www.vocalproject.net
@@ -12,7 +12,7 @@ pkgbase = vocal
 	depends = granite
 	depends = gst-plugins-base-libs
 	depends = clutter-gtk
-	source = https://launchpad.net/vocal/1.x/1.0/+download/vocal_1.0.tar.gz
+	source = https://downloads.sourceforge.net/project/vocalpodcast/vocal_1.0.tar.gz
 	md5sums = a1addd97e1f79c5fae4ede3661415be0
 
 pkgname = vocal

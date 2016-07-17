@@ -5,13 +5,13 @@ pkgname=vocal
 pkgver=1.0
 _revision=r284
 pkgrel=1
-pkgdesc='Simple Podcast Client for the Modern Desktop'
+pkgdesc='Podcast Client for the Modern Desktop'
 arch=('i686' 'x86_64')
 url='http://www.vocalproject.net'
 license=('GPL3')
 depends=('libnotify' 'granite' 'gst-plugins-base-libs' 'clutter-gtk')
 makedepends=('vala' 'cmake')
-source=("https://launchpad.net/vocal/1.x/$pkgver/+download/vocal_$pkgver.tar.gz")
+source=("https://downloads.sourceforge.net/project/vocalpodcast/vocal_$pkgver.tar.gz")
 md5sums=('a1addd97e1f79c5fae4ede3661415be0')
 
 prepare() {
