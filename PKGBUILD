@@ -5,7 +5,7 @@
 pkgname=razercfg
 pkgver=0.37
 pkgrel=1
-pkgdesc='Next generation Razer device configuration tool'
+pkgdesc='Next generation Razer mouse configuration tool'
 arch=('any')
 url=https://bues.ch/h/razercfg
 license=('GPL')
