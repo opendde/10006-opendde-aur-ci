@@ -1,18 +1,20 @@
 pkgbase = python-influxdb
 	pkgdesc = Python client for InfluxDB
-	pkgver = 2.8.0
-	pkgrel = 2
+	pkgver = 3.0.0
+	pkgrel = 1
 	url = https://github.com/influxdb/influxdb-python/
 	arch = any
 	license = MIT
 	makedepends = python-setuptools
 	depends = python
-	depends = python-requests
-	depends = python-dateutil
+	depends = python-requests>=1.0.3
+	depends = python-dateutil>=2.0.0
+	depends = python-six>=1.9.0
+	depends = python-pytz
 	optdepends = influxdb
 	options = !emptydirs
-	source = https://github.com/influxdb/influxdb-python/archive/v2.8.0.tar.gz
-	md5sums = d1b504c6bcfb0e05693088ca37744343
+	source = https://github.com/influxdb/influxdb-python/archive/v3.0.0.tar.gz
+	md5sums = e89976e6131d76d939e62c7cbeba00f6
 
 pkgname = python-influxdb
 
