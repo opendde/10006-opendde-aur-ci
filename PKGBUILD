@@ -20,16 +20,15 @@ optdepends=(
 )
 provides=("${pkgname}")
 conflicts=("${pkgname}-git")
-install=${pkgname}.install
 source=("https://downloads.sourceforge.net/project/kxstudio/Releases/${pkgname}/Cadence-${pkgver}-src.tar.bz2")
 sha512sums=('333a8532859cfa4ca61446b6b136baa7930d2a9d1acbb55e2ee296998604c0e8e3effd5e21fe3154caf8ae6534190a0f592b070b671164ccfd647567ba2cc33f')
 
 build() {
-  cd "${srcdir}/Cadence-${pkgver}"
+  cd "Cadence-${pkgver}"
   make
 }
 
 package() {
-  cd "${srcdir}/Cadence-${pkgver}"
+  cd "Cadence-${pkgver}"
   make DESTDIR="${pkgdir}" PREFIX=/usr install
 }
