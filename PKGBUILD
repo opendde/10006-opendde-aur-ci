@@ -1,9 +1,10 @@
 # Maintainer: Artem Vorotnikov <artem@vorotnikov.me>
+# Contributor: Caleb Maclennan <caleb@alerque.com>
 
 pkgbase=python-pytoml
 pkgname=(python-pytoml python2-pytoml)
 _pypiname=pytoml
-pkgver=0.1.4
+pkgver=0.1.11
 pkgrel=1
 pkgdesc="A TOML-0.4.0 parser/writer for Python."
 arch=('any')
@@ -12,8 +13,8 @@ license=('MIT')
 makedepends=('python-setuptools' 'python2-setuptools' 'unzip')
 checkdepends=('python-nose' 'python2-nose')
 optdepends=()
-source=("http://pypi.python.org/packages/source/p/${_pypiname}/${_pypiname}-${pkgver}.zip")
-sha512sums=(SKIP)
+source=("https://github.com/avakar/${_pypiname}/archive/v${pkgver}.tar.gz")
+sha512sums=('d8a0ae83130f94ad00a735c43a7e53086720ffc8545ab72bac3f711ebb06c6d80af4837518836dfc1e2cd107afa084ab2d3ea4de59a01f5c8dc4e3114a64b50b')
 
 prepare() {
   cp -r $_pypiname-$pkgver{,-py2}
@@ -50,4 +51,3 @@ package_python2-pytoml() {
   cd "$srcdir/$_pypiname-$pkgver"
   python2 setup.py install --root="$pkgdir" --optimize=1 --skip-build
 }
-
