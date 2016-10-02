@@ -2,33 +2,38 @@
 # Maintainer: Uffe Jakobsen <uffe@uffe.org>
 pkgname=hashdeep
 pkgver=4.4
-pkgrel=2
+pkgrel=3
 pkgdesc="cross-platform tools to computer hashes, or message digests, for any number of files"
 arch=('i686' 'x86_64')
 url="https://github.com/jessek/hashdeep"
-license=('GPL')
-source=(git+https://github.com/jessek/hashdeep#commit=b88a659572925e748115bdc3f4f64cacf15f2061)
-sha256sums=('SKIP')
+license=('GPL' 'custom')
+depends=("gcc-libs")
+makedepends=()
+source=(https://github.com/jessek/hashdeep/archive/v${pkgver}.tar.gz)
+md5sums=('3b6a475c5bc2d6ce8954ce90a62008ef')
 
-pkgver() {
-  cd "$srcdir/$pkgname"
-  git describe --tags | sed 's/^v//; s/-/.r/; s/-/./'
-}
 
 prepare() {
-  cd "$srcdir/$pkgname"
+  cd "${srcdir}/${pkgname}-${pkgver}"
   ./bootstrap.sh
 }
 
 build() {
-  cd "$srcdir/$pkgname"
+  cd "${srcdir}/${pkgname}-${pkgver}"
   ./configure --prefix=/usr
   make
 }
 
+check() {
+  cd "${srcdir}/${pkgname}-${pkgver}"
+}
+
 package() {
-  cd "$srcdir/$pkgname"
+  cd "${srcdir}/${pkgname}-${pkgver}"
   make DESTDIR="$pkgdir/" install
+  mkdir -p "${pkgdir}/usr/share/licenses/${pkgname}"
+  cp COPYING "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+
 }
 
 # EOF
