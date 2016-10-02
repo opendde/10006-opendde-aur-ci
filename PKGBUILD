@@ -30,10 +30,9 @@ check() {
 
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-  make DESTDIR="$pkgdir/" install
+  make DESTDIR="${pkgdir}/" install
   mkdir -p "${pkgdir}/usr/share/licenses/${pkgname}"
-  cp COPYING "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-
+  install -Dm644 COPYING "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 # EOF
