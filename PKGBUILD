@@ -3,16 +3,16 @@
 _pkgbase=jinja2-time
 pkgbase=python-jinja-time
 pkgname=(${pkgbase} python2-jinja-time)
-pkgver=0.1.0
-pkgrel=3
+pkgver=0.2.0
+pkgrel=1
 pkgdesc="Python Jinja2 library extension for dates and times"
 arch=(any)
 url="https://github.com/hackebrot/jinja2-time"
 license=('MIT')
 depends=()
 makedepends=('python-setuptools' 'python2-setuptools')
-source=("https://pypi.python.org/packages/source/j/${_pkgbase}/${_pkgbase}-$pkgver.tar.gz")
-sha256sums=('e1dc60e917be18e7b07d5e908531ff55134f2bb67e1aeb4573a1d0267f33aa91')
+source=("https://pypi.python.org/packages/de/7c/ee2f2014a2a0616ad3328e58e7dac879251babdb4cb796d770b5d32c469f/${_pkgbase}-$pkgver.tar.gz")
+sha256sums=('d14eaa4d315e7688daa4969f616f226614350c48730bfa1692d2caebd8c90d40')
 
 
 prepare() {
