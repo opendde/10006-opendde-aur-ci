@@ -3,25 +3,31 @@
 # Other Contributors : trontonic for man page & license fixes.
 
 pkgname=deheader
-pkgver=1.3
+pkgver=1.6
 pkgrel=1
 
 pkgdesc='C and C++ file analyzer to determine which header enclusions can be removed while still allowing them to compile'
 url='http://www.catb.org/esr/deheader/'
 arch=('any')
 
-source=(http://www.catb.org/~esr/deheader/deheader-$pkgver.tar.gz
+source=(http://www.catb.org/~esr/deheader/deheader-${pkgver}.tar.gz
 	python3.patch
 	python2.patch)
-md5sums=('ea438ff8756f11270415c30719e23e4b'
-         '3d1a3a4ca462dd934c4bb3aaab75b5c5'
+noextract=(deheader-${pkgver}.tar.gz)
+md5sums=('d35e2a380d65cce47b518bae4ac2efea'
+         '1a3f51f2ef63632866b891fff00c784f'
          '62edf5aa5ee0206632ea2b50c22dfeb7')
 
 #change to python2, if you don't want python3
 #depends=('python2')
+makedepends=('tar')
 depends=('python')
 provides=('deheader')
 license=('BSD')
+
+prepare () {
+	tar xf deheader-$pkgver.tar.gz
+}
 
 build () {
 	pushd ${srcdir}/deheader-$pkgver
