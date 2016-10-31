@@ -3,7 +3,7 @@
 # Contributor: Fergus Symon <fergofrog@fergofrog.com>
 
 pkgname=razercfg
-pkgver=0.37
+pkgver=0.38
 pkgrel=1
 pkgdesc='Next generation Razer mouse configuration tool'
 arch=('any')
@@ -16,7 +16,7 @@ backup=('etc/razer.conf')
 source=("http://bues.ch/razercfg/razercfg-$pkgver.tar.bz2"{,.asc}
         'tmpfile.conf')
 install=razercfg.install
-sha256sums=('70567a40503ae7cece44669de457b5fbf47b5dd86f8ae6d2c2ef0c1e844b3d7a'
+sha256sums=('8025a4765f2ff8e99104611e5d151f7a101b0f2692c9fc169ac237dd379bac6c'
             'SKIP'
             'a6fa99646938e57bd8be18a38de86ccae5bb19c78e571265db5987a46d0bf21a')
 validpgpkeys=('757FAB7CED1814AE15B4836E5FB027474203454C') # Michael Busch
