@@ -1,0 +1,136 @@
+diff -aur sonic-pi.orig/app/gui/qt/mainwindow.cpp sonic-pi/app/gui/qt/mainwindow.cpp
+--- sonic-pi.orig/app/gui/qt/mainwindow.cpp	2016-11-03 16:25:13.000000000 +0100
++++ sonic-pi/app/gui/qt/mainwindow.cpp	2016-11-22 11:01:49.825906684 +0100
+@@ -117,23 +117,10 @@
+ 
+   QString root_path = rootPath();
+ 
+-#if defined(Q_OS_WIN)
+-  ruby_path = QDir::toNativeSeparators(root_path + "/app/server/native/win/ruby/bin/ruby.exe");
+-#elif defined(Q_OS_MAC)
+-  ruby_path = root_path + "/app/server/native/osx/ruby/bin/ruby";
+-#else
+-  ruby_path = root_path + "/app/server/native/raspberry/ruby/bin/ruby";
+-#endif
+-
+-  QFile file(ruby_path);
+-  if(!file.exists()) {
+-    // fallback to user's locally installed ruby
+-    ruby_path = "ruby";
+-  }
+-
+-  ruby_server_path = QDir::toNativeSeparators(root_path + "/app/server/bin/sonic-pi-server.rb");
+-  port_discovery_path = QDir::toNativeSeparators(root_path + "/app/server/bin/port-discovery.rb");
+-  sample_path = QDir::toNativeSeparators(root_path + "/etc/samples");
++  ruby_path = QDir::toNativeSeparators("/usr/bin/ruby");
++  ruby_server_path = QDir::toNativeSeparators("/usr/lib/sonic-pi/server/bin/sonic-pi-server.rb");
++  port_discovery_path = QDir::toNativeSeparators("/usr/lib/sonic-pi/server/bin/port-discovery.rb");
++  sample_path = QDir::toNativeSeparators("/usr/share/sonic-pi/samples");
+ 
+   sp_user_path           = QDir::toNativeSeparators(sonicPiHomePath() + "/.sonic-pi");
+   sp_user_tmp_path       = QDir::toNativeSeparators(sp_user_path + "/.writableTesterPath");
+@@ -144,13 +131,13 @@
+   process_log_path       = QDir::toNativeSeparators(log_path + "/processes.log");
+   scsynth_log_path       = QDir::toNativeSeparators(log_path + QDir::separator() + "scsynth.log");
+ 
+-  init_script_path        = QDir::toNativeSeparators(root_path + "/app/server/bin/init-script.rb");
+-  exit_script_path        = QDir::toNativeSeparators(root_path + "/app/server/bin/exit-script.rb");
++  init_script_path        = QDir::toNativeSeparators("/usr/lib/sonic-pi/server/bin/init-script.rb");
++  exit_script_path        = QDir::toNativeSeparators("/usr/lib/sonic-pi/server/bin/exit-script.rb");
+ 
+-  qt_app_theme_path     = QDir::toNativeSeparators(root_path + "/app/gui/qt/theme/app.qss");
++  qt_app_theme_path     = QDir::toNativeSeparators("/usr/share/doc/sonic-pi/theme/app.qss");
+ 
+-  qt_browser_dark_css   = QDir::toNativeSeparators(root_path + "/app/gui/qt/theme/dark/doc-styles.css");
+-  qt_browser_light_css   = QDir::toNativeSeparators(root_path + "/app/gui/qt/theme/light/doc-styles.css");
++  qt_browser_dark_css   = QDir::toNativeSeparators("/usr/share/doc/sonic-pi/theme/dark/doc-styles.css");
++  qt_browser_light_css   = QDir::toNativeSeparators("/usr/share/doc/sonic-pi/theme/light/doc-styles.css");
+ 
+   QFile tmpFile(sp_user_tmp_path);
+   if (!tmpFile.open(QIODevice::WriteOnly)) {
+@@ -941,7 +928,7 @@
+   // Register server pid for potential zombie clearing
+   QStringList regServerArgs;
+ #if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
+-  regServerArgs << QDir::toNativeSeparators(rootPath() + "/app/server/bin/task-register.rb")<< QString::number(serverProcess->processId());
++  regServerArgs << QDir::toNativeSeparators("/usr/lib/sonic-pi/server/bin/bin/task-register.rb")<< QString::number(serverProcess->processId());
+ #endif
+   QProcess *regServerProcess = new QProcess();
+   regServerProcess->start(ruby_path, regServerArgs);
+diff -aur sonic-pi.orig/app/server/core.rb sonic-pi/app/server/core.rb
+--- sonic-pi.orig/app/server/core.rb	2016-11-22 08:17:39.300502202 +0100
++++ sonic-pi/app/server/core.rb	2016-11-22 11:01:49.825906684 +0100
+@@ -118,7 +118,7 @@
+   module Core
+     module SPRand
+       # Read in same random numbers as server for random stream sync
+-      @@random_numbers = ::WaveFile::Reader.new(File.expand_path("../../../etc/buffers/rand-stream.wav", __FILE__), ::WaveFile::Format.new(:mono, :float, 44100)).read(441000).samples.freeze
++	    @@random_numbers = ::WaveFile::Reader.new(File.expand_path("/usr/share/sonic-pi/buffers/rand-stream.wav", __FILE__), ::WaveFile::Format.new(:mono, :float, 44100)).read(441000).samples.freeze
+ 
+       def self.tl_seed_map(seed, idx=0)
+         {:sonic_pi_spider_random_gen_seed => seed,
+diff -aur sonic-pi.orig/app/server/sonicpi/lib/sonicpi/util.rb sonic-pi/app/server/sonicpi/lib/sonicpi/util.rb
+--- sonic-pi.orig/app/server/sonicpi/lib/sonicpi/util.rb	2016-11-03 16:25:13.000000000 +0100
++++ sonic-pi/app/server/sonicpi/lib/sonicpi/util.rb	2016-11-22 11:16:39.946093130 +0100
+@@ -209,7 +209,7 @@
+     end
+ 
+     def etc_path
+-      File.absolute_path("#{root_path}/etc")
++      File.absolute_path("/usr/share/sonic-pi")
+     end
+ 
+     def snippets_path
+@@ -217,7 +217,7 @@
+     end
+ 
+     def doc_path
+-      File.absolute_path("#{etc_path}/doc")
++      File.absolute_path("/usr/share/doc/sonic-pi")
+     end
+ 
+     def cheatsheets_path
+@@ -229,7 +229,7 @@
+     end
+ 
+     def tmp_path
+-      File.absolute_path("#{root_path}/tmp")
++      File.absolute_path("/tmp")
+     end
+ 
+     def synthdef_path
+@@ -249,7 +249,7 @@
+     end
+ 
+     def html_public_path
+-      File.absolute_path("#{app_path}/gui/html")
++      File.absolute_path("/usr/share/doc/sonic-pi/theme")
+     end
+ 
+     def qt_gui_path
+@@ -261,7 +261,7 @@
+     end
+ 
+     def server_path
+-      File.absolute_path("#{app_path}/server")
++      File.absolute_path("/usr/lib/sonic-pi/server")
+     end
+ 
+     def server_bin_path
+diff -aur sonic-pi.orig/app/server/util.rb sonic-pi/app/server/util.rb
+--- sonic-pi.orig/app/server/util.rb	2016-11-03 16:25:13.000000000 +0100
++++ sonic-pi/app/server/util.rb	2016-11-22 11:01:49.825906684 +0100
+@@ -16,11 +16,11 @@
+ end
+ 
+ def sp_scripts_path()
+-  File.absolute_path("#{sp_sonic_pi_path}/app/scripts")
++  File.absolute_path("/usr/share/sonic-pi/scripts")
+ end
+ 
+ def sp_synthdefs_path()
+-  File.absolute_path("#{sp_sonic_pi_path}/app/etc/synthdefs/compiled")
++  File.absolute_path("/usr/share/sonic-pi/synthdefs/compiled")
+ end
+ 
+ def spider_log(message)

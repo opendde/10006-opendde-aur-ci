@@ -11,9 +11,9 @@ Last-Update: 2016-01-22
 
 Index: sonic-pi/app/server/core.rb
 ===================================================================
---- sonic-pi.orig/app/server/core.rb	2016-04-15 14:08:06.680091344 +0200
-+++ sonic-pi/app/server/core.rb	2016-04-15 14:08:06.680091344 +0200
-@@ -482,45 +482,6 @@
+--- sonic-pi.orig/app/server/core.rb	2016-11-03 16:25:13.000000000 +0100
++++ sonic-pi/app/server/core.rb	2016-11-21 13:09:11.557147537 +0100
+@@ -655,46 +655,6 @@
    end
  end
  
@@ -56,6 +56,7 @@ Index: sonic-pi/app/server/core.rb
 -end
 -
 -
- # Backport Ruby 2+ thread local variable syntax
- if RUBY_VERSION < "2"
-   class Thread
+-
+ class Array
+   include SonicPi::Core::TLMixin
+ 

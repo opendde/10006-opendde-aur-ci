@@ -13,17 +13,34 @@ Last-Update: 2016-01-22
 
 Index: sonic-pi/app/server/core.rb
 ===================================================================
---- sonic-pi.orig/app/server/core.rb	2016-04-15 14:12:02.998058136 +0200
-+++ sonic-pi/app/server/core.rb	2016-04-15 14:12:40.489745640 +0200
-@@ -14,53 +14,8 @@
- 
- raise "Sonic Pi requires Ruby 1.9.3+ to be installed. You are using version #{RUBY_VERSION}" if RUBY_VERSION < "1.9.3"
+--- sonic-pi.orig/app/server/core.rb	2016-11-03 16:25:13.000000000 +0100
++++ sonic-pi/app/server/core.rb	2016-11-21 13:24:41.233722754 +0100
+@@ -12,20 +12,8 @@
+ # notice is included.
+ #++
  
 -## This core file sets up the load path and applies any necessary monkeypatches.
 -
 -## Ensure native lib dir is available
 -require 'rbconfig'
 -ruby_api = RbConfig::CONFIG['ruby_version']
+-
+-
+-## Ensure all libs in vendor directory are available
+-Dir["#{File.expand_path("../vendor", __FILE__)}/*/lib/"].each do |vendor_lib|
+-  $:.unshift vendor_lib
+-end
+-
+ begin
+-  require 'did_you_mean'
++  require 'did_you_mean'  if RUBY_VERSION >= "2.3.0"
+ rescue LoadError
+   warn "Non-critical error: Could not load did_you_mean"
+ end
+@@ -33,43 +21,6 @@
+ require 'hamster/vector'
+ require 'wavefile'
+ 
 -os = case RUBY_PLATFORM
 -     when /.*arm.*-linux.*/
 -       :raspberry
@@ -36,37 +53,31 @@ Index: sonic-pi/app/server/core.rb
 -     else
 -       RUBY_PLATFORM
 -     end
--ruby_gem_native_path = "#{File.expand_path("../rb-native", __FILE__)}"
--ruby_gem_api_path = "#{ruby_gem_native_path}/#{os}/#{ruby_api}"
 -
--unless File.directory?(ruby_gem_api_path)
--  STDERR.puts "*** COULD NOT FIND RUBY GEMS REQUIRED BY SONIC PI ***"
--  STDERR.puts "Directory '#{ruby_gem_api_path}' not found."
--  STDERR.puts "Your ruby interpreter is '#{RbConfig.ruby}', supporting ruby api #{ruby_api}."
--  Dir.entries("#{ruby_gem_native_path}/#{os}/")
--    .select { |d| (File.directory?("#{ruby_gem_native_path}/#{os}/#{d}") && d != '.' && d != '..') }
--    .each do |installed_ruby_api|
--      STDERR.puts "The Sonic Pi on your computer was installed for ruby api #{installed_ruby_api}."
--    end
--  STDERR.puts "Please refer to the Sonic Pi install instructions."
--  STDERR.puts "For installation, you need to run 'app/server/bin/compile-extensions.rb'."
--  STDERR.puts "If you change or upgrade your ruby interpreter later, you may need to run it again."
+-# special case for proctable lib
+-sys_proctable_os = case os
+-                   when :raspberry
+-                     "linux"
+-                   when :linux
+-                     "linux"
+-                   when :windows
+-                     "windows"
+-                   when :osx
+-                     "darwin"
+-                   end
+-$:.unshift "#{File.expand_path("../vendor", __FILE__)}/sys-proctable-1.1.1/lib/#{sys_proctable_os}"
 -
--  raise "Could not access ruby gem directory"
--end
 -
--$:.unshift ruby_gem_api_path
+-$:.unshift "#{File.expand_path("../rb-native", __FILE__)}/#{os}/#{ruby_api}/"
 -
 -require 'win32/process' if os == :windows
 -
--## Ensure all libs in vendor directory are available
--Dir["#{File.expand_path("../vendor", __FILE__)}/*/lib/"].each do |vendor_lib|
--  $:.unshift vendor_lib
--end
+-## Add aubio native library to ENV if not present (the aubio library needs to be told the location)
+-native_lib_path = "#{File.expand_path("../native/#{os}/", __FILE__)}"
+-ENV["AUBIO_LIB"] ||= Dir[native_lib_path + "/lib/libaubio*.{*dylib,so*,dll}"].first
 -
- begin
--  require 'did_you_mean'
-+  require 'did_you_mean' if RUBY_VERSION >= "2.3.0"
- rescue LoadError
-   warn "Non-critical error: Could not load did_you_mean"
- end
+-
+-
+ # Backport Ruby 2+ thread local variable syntax
+ if RUBY_VERSION < "2"
+   class Thread

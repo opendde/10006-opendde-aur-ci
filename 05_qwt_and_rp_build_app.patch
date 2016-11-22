@@ -1,0 +1,24 @@
+diff -aur sonic-pi.orig/app/gui/qt/rp-build-app sonic-pi/app/gui/qt/rp-build-app
+--- sonic-pi.orig/app/gui/qt/rp-build-app	2016-11-03 16:25:13.000000000 +0100
++++ sonic-pi/app/gui/qt/rp-build-app	2016-11-21 17:34:15.157697486 +0100
+@@ -1,8 +1,5 @@
+ #!/bin/bash
+ 
+-echo "We're working to update the build process for SP 2.11, this script hasn't been updated yet, and may not work, try ./build-ubuntu-app instead!"
+-exit
+-
+ set -eux
+ 
+ cd $(dirname $0)
+diff -aur sonic-pi.orig/app/gui/qt/SonicPi.pro sonic-pi/app/gui/qt/SonicPi.pro
+--- sonic-pi.orig/app/gui/qt/SonicPi.pro	2016-11-03 16:25:13.000000000 +0100
++++ sonic-pi/app/gui/qt/SonicPi.pro	2016-11-21 17:34:07.760991924 +0100
+@@ -22,7 +22,7 @@
+ 
+ QT += core gui concurrent network opengl
+ 
+-include ( /usr/local/qwt-6.1.2/features/qwt.prf )
++include ( /usr/lib/qt/mkspecs/features/qwt.prf )
+ LIBS += -L/Users/sam/Development/Supercollider/git-src/external_libraries/boost/libs
+ INCLUDEPATH += /Users/sam/Development/Supercollider/git-src/external_libraries/boost/
+ DEPENDPATH += /Users/sam/Development/Supercollider/git-src/external_libraries/boost/
