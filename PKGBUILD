@@ -3,7 +3,7 @@
 pkgname=sonic-pi
 _progname="Sonic Pi"
 pkgver=2.11.0
-pkgrel=2
+pkgrel=3
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -74,6 +74,7 @@ package() {
 	cp -r "etc/doc/generated" "${pkgdir}/usr/share/doc/sonic-pi"
 	cp -r "etc/doc/lang" "${pkgdir}/usr/share/doc/sonic-pi"
 	cp -r "etc/doc/tutorial" "${pkgdir}/usr/share/doc/sonic-pi"
+	cp -r "app/gui/qt/book" "${pkgdir}/usr/share/doc/sonic-pi"
 	cp -r "app/gui/qt/theme" "${pkgdir}/usr/share/doc/sonic-pi"
 	
 	install -d "${pkgdir}/usr/share/doc/sonic-pi/images"
