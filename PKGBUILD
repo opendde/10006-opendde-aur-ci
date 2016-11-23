@@ -3,7 +3,7 @@
 pkgname=sonic-pi
 _progname="Sonic Pi"
 pkgver=2.11.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -19,11 +19,11 @@ optdepends=('qjackctl: for graphical jackd spawning/configuration'
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.png" "${pkgname}.desktop"
 		"${pkgname}.install" "02-do-no-require-unused-ruby-gems.patch"
 		"03-use-debian-gems.patch" "04-rename-ruby-beautify-legacy.patch" "05_qwt_and_rp_build_app.patch"
-		"06_adjust_paths.patch")
+		"06_adjust_paths.patch" "07_temp_remove_randstream.patch")
 md5sums=('c092ba594a9a65504012d2968c23377e' 'e3ca8a1d949baf35cdf438c8d10159ff' '19a64d717674f75918c176197650b44a'
 		'20d0d75ffccf48af2728441652d8afd6' 'f1c64c01faad9451267476a601ad2352'
 		'65d9f0e5f6c9cddad7e8e96dff101091' '03f5b108e8765f982d7de0b4f734519a' '2c99e1fbc57ae5a243656fe7ca637457'
-		'02610f0f2f6fb0d6a92d9aa2c387b8c6')
+		'02610f0f2f6fb0d6a92d9aa2c387b8c6' '781b567c4dc78277263ec8f67e578676')
 install="${pkgname}.install"
 
 prepare() {
@@ -34,6 +34,7 @@ prepare() {
 	patch -p1 < "${srcdir}/04-rename-ruby-beautify-legacy.patch"
 	patch -p1 < "${srcdir}/05_qwt_and_rp_build_app.patch"
 	patch -p1 < "${srcdir}/06_adjust_paths.patch"
+	patch -p1 < "${srcdir}/07_temp_remove_randstream.patch"
 	mv "app/server/vendor/ruby-beautify/lib/ruby-beautify.rb" "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy.rb"
 	rm -fr "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy"
 	mv "app/server/vendor/ruby-beautify/lib/ruby-beautify" "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy"
@@ -44,6 +45,8 @@ build() {
     ./compile-extensions.rb
 	cd "${srcdir}/${pkgname}-${pkgver}/app/gui/qt"
     ./rp-build-app
+    cd "${srcdir}/${pkgname}-${pkgver}"
+    patch -p1 -R < "${srcdir}/07_temp_remove_randstream.patch"
 }
 
 package() {
@@ -66,8 +69,11 @@ package() {
 	cp -r "etc/snippets" "${pkgdir}/usr/share/sonic-pi"
 	cp -r "etc/examples" "${pkgdir}/usr/share/sonic-pi"
 	
-	install -d "${pkgdir}/usr/share/doc/sonic-pi/tutorial"
-	cp app/gui/qt/book/* "${pkgdir}/usr/share/doc/sonic-pi/tutorial"
+	install -d "${pkgdir}/usr/share/doc/sonic-pi"
+	cp -r "etc/doc/cheatsheets" "${pkgdir}/usr/share/doc/sonic-pi"
+	cp -r "etc/doc/generated" "${pkgdir}/usr/share/doc/sonic-pi"
+	cp -r "etc/doc/lang" "${pkgdir}/usr/share/doc/sonic-pi"
+	cp -r "etc/doc/tutorial" "${pkgdir}/usr/share/doc/sonic-pi"
 	cp -r "app/gui/qt/theme" "${pkgdir}/usr/share/doc/sonic-pi"
 	
 	install -d "${pkgdir}/usr/share/doc/sonic-pi/images"

@@ -1,0 +1,13 @@
+diff -aur sonic-pi.orig/app/server/core.rb sonic-pi/app/server/core.rb
+--- sonic-pi.orig/app/server/core.rb	2016-11-23 08:17:09.944220162 +0100
++++ sonic-pi/app/server/core.rb	2016-11-23 08:17:32.060957355 +0100
+@@ -117,9 +117,6 @@
+ module SonicPi
+   module Core
+     module SPRand
+-      # Read in same random numbers as server for random stream sync
+-	    @@random_numbers = ::WaveFile::Reader.new(File.expand_path("/usr/share/sonic-pi/buffers/rand-stream.wav", __FILE__), ::WaveFile::Format.new(:mono, :float, 44100)).read(441000).samples.freeze
+-
+       def self.tl_seed_map(seed, idx=0)
+         {:sonic_pi_spider_random_gen_seed => seed,
+           :sonic_pi_spider_random_gen_idx => idx}
