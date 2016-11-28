@@ -11,7 +11,7 @@ license=('MIT')
 depends=('lua' 'qscintilla-qt5' 'jack' 'supercollider' 'ruby-hamster' 'ruby-wavefile'
 		 'ruby-activesupport' 'ruby-kramdown' 'ruby-rugged' 'ruby-multi_json'
 		 'ruby-thread_safe' 'ruby-gettext' 'ruby-fast_osc' 'ruby-aubio' 'qwt-qt5-opengl'
-		 'ruby-memoist')
+		 'ruby-memoist' 'boost')
 makedepends=('cmake' 'qt5-tools' 'sed')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
 			'jack2: better jackd if you want to use without gui'
