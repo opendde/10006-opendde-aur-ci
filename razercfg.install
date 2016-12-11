@@ -1,15 +1,15 @@
 post_install() {
-	ldconfig
-	udevadm control --reload-rules
-	echo "Note: The 'razerd' daemon must be started before using the configuration tool"
-    /usr/bin/systemd-tmpfiles --create razerd.conf || true
+  ldconfig
+  udevadm control --reload-rules
+  echo 'Note: Start the `razerd` daemon before using the configuration tool'
+  systemd-tmpfiles --create razerd.conf
 }
 
 post_upgrade() {
-	ldconfig
-	udevadm control --reload-rules
+  ldconfig
+  udevadm control --reload-rules
 }
 
 post_remove() {
-	post_upgrade
+  post_upgrade
 }
