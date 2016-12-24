@@ -2,7 +2,7 @@
 
 pkgname=python-whichcraft
 _pkgname=whichcraft
-pkgver=0.1.1
+pkgver=0.4.0
 pkgrel=1
 pkgdesc="Cross-platform cross-python shutil.which functionality"
 arch=('any')
@@ -17,7 +17,7 @@ replaces=()
 backup=()
 options=(!emptydirs)
 source=("https://github.com/pydanny/${_pkgname}/archive/${pkgver}.tar.gz")
-md5sums=('7c4825bac3ef774219eb076d64a421f6')
+md5sums=('f35a3aa2df24536c453e27131182b49d')
 
 package() {
   cd "$srcdir/${_pkgname}-${pkgver}"
