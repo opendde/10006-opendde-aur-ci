@@ -16,17 +16,18 @@ sha256sums=('1e198730a855ab8662c4ebb4f13bf5b9b142ddac9971f101acfbfd68a98cd554')
 
 prepare() {
 	mkdir -p build
+	pushd ${pkgname}-${pkgver} >/dev/null
+	./scripts/fetch_icons.sh
+	popd >/dev/null
 }
 
 build() {
 	cd build
 	cmake ../${pkgname}-${pkgver} \
 		-DCMAKE_INSTALL_PREFIX=/usr \
-		-DLIB_INSTALL_DIR=lib \
-		-DLIBEXEC_INSTALL_DIR=lib \
-		-DQML_INSTALL_DIR=lib/qt/qml \
-		-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-		-DCMAKE_BUILD_TYPE=RelWithDebInfo
+		-DCMAKE_BUILD_TYPE=Release \
+		-DKDE_INSTALL_LIBDIR=lib \
+		-DKDE_INSTALL_LIBEXECDIR=lib
 	make
 }
 
