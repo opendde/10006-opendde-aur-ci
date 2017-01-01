@@ -1,18 +1,18 @@
 # Maintainer: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
 
 pkgname=fluid
-pkgver=0.8.0
+pkgver=0.9.0
 pkgrel=1
 pkgdesc="Components for Qt Quick applications"
 arch=('i686' 'x86_64' 'armv6h' 'armv7h')
-url='http://hawaiios.org'
-license=('LGPL')
-depends=('qt5-quickcontrols' 'qt5-quickcontrols2' 'qt5-graphicaleffects' 'qt5-svg')
+url='https://liri.io'
+license=('MPL2')
+depends=('qt5-quickcontrols2' 'qt5-graphicaleffects' 'qt5-svg')
 makedepends=('extra-cmake-modules')
 conflicts=('fluid-git')
-groups=('hawaii')
-source=("https://github.com/hawaii-desktop/${pkgname}/releases/download/v${pkgver}/${pkgname}-${pkgver}.tar.xz")
-sha1sums=('1f40d9c9ec73e93aa2c62901e2db6f44ddff876f')
+groups=('liri')
+source=("https://github.com/lirios/${pkgname}/releases/download/v${pkgver}/${pkgname}-${pkgver}.tar.xz")
+sha256sums=('1e198730a855ab8662c4ebb4f13bf5b9b142ddac9971f101acfbfd68a98cd554')
 
 prepare() {
 	mkdir -p build
