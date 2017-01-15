@@ -2,8 +2,8 @@
 # Contributor: Hanno Zulla <kontakt@hanno.de>
 pkgname=sonic-pi
 _progname="Sonic Pi"
-pkgver=2.11.0
-pkgrel=3
+pkgver=2.11.1
+pkgrel=1
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -17,24 +17,24 @@ optdepends=('qjackctl: for graphical jackd spawning/configuration'
 			'jack2: better jackd if you want to use without gui'
 			'supercollider-with-plugins: includes sc3-plugins e.g. piano synth')
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz" "${pkgname}.png" "${pkgname}.desktop"
-		"${pkgname}.install" "02-do-no-require-unused-ruby-gems.patch"
-		"03-use-debian-gems.patch" "04-rename-ruby-beautify-legacy.patch" "05_qwt_and_rp_build_app.patch"
-		"06_adjust_paths.patch" "07_temp_remove_randstream.patch")
-md5sums=('c092ba594a9a65504012d2968c23377e' 'e3ca8a1d949baf35cdf438c8d10159ff' '19a64d717674f75918c176197650b44a'
-		'20d0d75ffccf48af2728441652d8afd6' 'f1c64c01faad9451267476a601ad2352'
-		'65d9f0e5f6c9cddad7e8e96dff101091' '03f5b108e8765f982d7de0b4f734519a' '2c99e1fbc57ae5a243656fe7ca637457'
-		'02610f0f2f6fb0d6a92d9aa2c387b8c6' '781b567c4dc78277263ec8f67e578676')
+		"${pkgname}.install" "01-do-no-require-unused-ruby-gems.patch"
+		"02-use-debian-gems.patch" "03-rename-ruby-beautify-legacy.patch" "04_rp_build_app.patch"
+		"05_adjust_paths.patch" "06_temp_remove_randstream.patch")
+md5sums=('54dcc89d8ff362d2a1362cc71fed4950' 'e3ca8a1d949baf35cdf438c8d10159ff' '19a64d717674f75918c176197650b44a'
+		'20d0d75ffccf48af2728441652d8afd6' '290351f08d17e43cd4a218a2b04a2d5c'
+		'65d9f0e5f6c9cddad7e8e96dff101091' '7854f578da8384f918a6a4fd223cd9db' '2a1e1f84caf9bf88e618ccbf20ed0031'
+		'158c587e1083510074e3572437f38e58' '781b567c4dc78277263ec8f67e578676')
 install="${pkgname}.install"
 
 prepare() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
 	sed -i 's/lqt5scintilla2/lqscintilla2-qt5/g' "app/gui/qt/SonicPi.pro"
-	patch -p1 < "${srcdir}/02-do-no-require-unused-ruby-gems.patch"
-	patch -p1 < "${srcdir}/03-use-debian-gems.patch"
-	patch -p1 < "${srcdir}/04-rename-ruby-beautify-legacy.patch"
-	patch -p1 < "${srcdir}/05_qwt_and_rp_build_app.patch"
-	patch -p1 < "${srcdir}/06_adjust_paths.patch"
-	patch -p1 < "${srcdir}/07_temp_remove_randstream.patch"
+	patch -p1 < "${srcdir}/01-do-no-require-unused-ruby-gems.patch"
+	patch -p1 < "${srcdir}/02-use-debian-gems.patch"
+	patch -p1 < "${srcdir}/03-rename-ruby-beautify-legacy.patch"
+	patch -p1 < "${srcdir}/04_rp_build_app.patch"
+	patch -p1 < "${srcdir}/05_adjust_paths.patch"
+	patch -p1 < "${srcdir}/06_temp_remove_randstream.patch"
 	mv "app/server/vendor/ruby-beautify/lib/ruby-beautify.rb" "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy.rb"
 	rm -fr "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy"
 	mv "app/server/vendor/ruby-beautify/lib/ruby-beautify" "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy"
@@ -46,7 +46,7 @@ build() {
 	cd "${srcdir}/${pkgname}-${pkgver}/app/gui/qt"
     ./rp-build-app
     cd "${srcdir}/${pkgname}-${pkgver}"
-    patch -p1 -R < "${srcdir}/07_temp_remove_randstream.patch"
+    patch -p1 -R < "${srcdir}/06_temp_remove_randstream.patch"
 }
 
 package() {

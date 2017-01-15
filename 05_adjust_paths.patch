@@ -1,7 +1,7 @@
-diff -aur sonic-pi.orig/app/gui/qt/mainwindow.cpp sonic-pi/app/gui/qt/mainwindow.cpp
---- sonic-pi.orig/app/gui/qt/mainwindow.cpp	2016-11-03 16:25:13.000000000 +0100
-+++ sonic-pi/app/gui/qt/mainwindow.cpp	2016-11-22 11:01:49.825906684 +0100
-@@ -117,23 +117,10 @@
+diff -aur sonic-pi-2.11.1.orig/app/gui/qt/mainwindow.cpp sonic-pi-2.11.1/app/gui/qt/mainwindow.cpp
+--- sonic-pi-2.11.1.orig/app/gui/qt/mainwindow.cpp	2017-01-15 16:40:57.489377271 +0100
++++ sonic-pi-2.11.1/app/gui/qt/mainwindow.cpp	2017-01-15 16:41:04.606087059 +0100
+@@ -120,23 +120,10 @@
  
    QString root_path = rootPath();
  
@@ -29,7 +29,7 @@ diff -aur sonic-pi.orig/app/gui/qt/mainwindow.cpp sonic-pi/app/gui/qt/mainwindow
  
    sp_user_path           = QDir::toNativeSeparators(sonicPiHomePath() + "/.sonic-pi");
    sp_user_tmp_path       = QDir::toNativeSeparators(sp_user_path + "/.writableTesterPath");
-@@ -144,13 +131,13 @@
+@@ -147,13 +134,13 @@
    process_log_path       = QDir::toNativeSeparators(log_path + "/processes.log");
    scsynth_log_path       = QDir::toNativeSeparators(log_path + QDir::separator() + "scsynth.log");
  
@@ -48,7 +48,7 @@ diff -aur sonic-pi.orig/app/gui/qt/mainwindow.cpp sonic-pi/app/gui/qt/mainwindow
  
    QFile tmpFile(sp_user_tmp_path);
    if (!tmpFile.open(QIODevice::WriteOnly)) {
-@@ -941,7 +928,7 @@
+@@ -912,7 +899,7 @@
    // Register server pid for potential zombie clearing
    QStringList regServerArgs;
  #if QT_VERSION >= QT_VERSION_CHECK(5, 3, 0)
@@ -57,9 +57,9 @@ diff -aur sonic-pi.orig/app/gui/qt/mainwindow.cpp sonic-pi/app/gui/qt/mainwindow
  #endif
    QProcess *regServerProcess = new QProcess();
    regServerProcess->start(ruby_path, regServerArgs);
-diff -aur sonic-pi.orig/app/server/core.rb sonic-pi/app/server/core.rb
---- sonic-pi.orig/app/server/core.rb	2016-11-22 08:17:39.300502202 +0100
-+++ sonic-pi/app/server/core.rb	2016-11-22 11:01:49.825906684 +0100
+diff -aur sonic-pi-2.11.1.orig/app/server/core.rb sonic-pi-2.11.1/app/server/core.rb
+--- sonic-pi-2.11.1.orig/app/server/core.rb	2017-01-15 16:40:57.492710624 +0100
++++ sonic-pi-2.11.1/app/server/core.rb	2017-01-15 16:41:04.609420412 +0100
 @@ -118,7 +118,7 @@
    module Core
      module SPRand
@@ -69,9 +69,9 @@ diff -aur sonic-pi.orig/app/server/core.rb sonic-pi/app/server/core.rb
  
        def self.tl_seed_map(seed, idx=0)
          {:sonic_pi_spider_random_gen_seed => seed,
-diff -aur sonic-pi.orig/app/server/sonicpi/lib/sonicpi/util.rb sonic-pi/app/server/sonicpi/lib/sonicpi/util.rb
---- sonic-pi.orig/app/server/sonicpi/lib/sonicpi/util.rb	2016-11-03 16:25:13.000000000 +0100
-+++ sonic-pi/app/server/sonicpi/lib/sonicpi/util.rb	2016-11-22 11:16:39.946093130 +0100
+diff -aur sonic-pi-2.11.1.orig/app/server/sonicpi/lib/sonicpi/util.rb sonic-pi-2.11.1/app/server/sonicpi/lib/sonicpi/util.rb
+--- sonic-pi-2.11.1.orig/app/server/sonicpi/lib/sonicpi/util.rb	2017-01-15 16:40:57.512710746 +0100
++++ sonic-pi-2.11.1/app/server/sonicpi/lib/sonicpi/util.rb	2017-01-15 16:41:04.609420412 +0100
 @@ -209,7 +209,7 @@
      end
  
@@ -117,9 +117,9 @@ diff -aur sonic-pi.orig/app/server/sonicpi/lib/sonicpi/util.rb sonic-pi/app/serv
      end
  
      def server_bin_path
-diff -aur sonic-pi.orig/app/server/util.rb sonic-pi/app/server/util.rb
---- sonic-pi.orig/app/server/util.rb	2016-11-03 16:25:13.000000000 +0100
-+++ sonic-pi/app/server/util.rb	2016-11-22 11:01:49.825906684 +0100
+diff -aur sonic-pi-2.11.1.orig/app/server/util.rb sonic-pi-2.11.1/app/server/util.rb
+--- sonic-pi-2.11.1.orig/app/server/util.rb	2017-01-15 16:40:57.512710746 +0100
++++ sonic-pi-2.11.1/app/server/util.rb	2017-01-15 16:41:04.609420412 +0100
 @@ -16,11 +16,11 @@
  end
  
