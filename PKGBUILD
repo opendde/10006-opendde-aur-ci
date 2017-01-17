@@ -15,6 +15,8 @@ sha512sums=('cdc9e0c0ded96281678199783b4c48ff85a497c90b244a7ce2276b54d7ae4bfa7eb
 
 package() {
   cd ${srcdir}/${pkgname}-${pkgver}
+
   install -Dm755 ${pkgname} ${pkgdir}/usr/bin/${pkgname}
-  install -Dm644 ${pkgname%-*}.service $pkgdir/usr/lib/systemd/system/${pkgname}.service
+  install -Dm644 examples/systemd_dynamic_threshold/tpacpi.service ${pkgdir}/usr/lib/systemd/system/tpacpi-bat.service
+  install -Dm644 examples/systemd_dynamic_threshold/tpacpi.conf.d ${pkgdir}/etc/conf.d/tpacpi
 }
