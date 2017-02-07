@@ -6,19 +6,21 @@
 
 pkgname=eid-mw
 pkgver=4.2.0
-pkgrel=1
+pkgrel=2
 
-pkgdesc="eID Middleware is the middleware for the Belgian electronic identity card"
+pkgdesc="The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)"
 arch=('i686' 'x86_64')
-url=http://eid.belgium.be/
+url='http://eid.belgium.be/'
 license=('LGPL3')
 
-depends=('pcsclite' 'gtk2')
+depends=('pcsclite' 'gtk3' 'libproxy')
 optdepends=(
     'firefox: extension for Belgian eid'
     'acsccid: ACS CCID smart card readers'
     'ccid: A generic USB Chip/Smart Card Interface Devices driver'
     'pcsc-tools: PC/SC smartcard tools')
+conflicts=('eid-viewer')
+replaces=('eid-viewer')
 
 source=(
     "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
