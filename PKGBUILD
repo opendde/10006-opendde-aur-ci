@@ -6,9 +6,9 @@
 
 pkgname=eid-mw
 pkgver=4.2.0
-pkgrel=2
+pkgrel=3
 
-pkgdesc="The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)"
+pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
 arch=('i686' 'x86_64')
 url='http://eid.belgium.be/'
 license=('LGPL3')
@@ -37,12 +37,12 @@ validpgpkeys=(
 )
 
 build() {
-	cd "$pkgname-$pkgver-v$pkgver"
-	./configure --prefix=/usr --libexecdir=/usr/bin
-	make
+    cd "$pkgname-$pkgver-v$pkgver"
+    ./configure --prefix=/usr --libexecdir=/usr/bin
+    make
 }
 
 package() {
-	cd "$pkgname-$pkgver-v$pkgver"
-	make install DESTDIR="$pkgdir"
+    cd "$pkgname-$pkgver-v$pkgver"
+    make install DESTDIR="$pkgdir"
 }
