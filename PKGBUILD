@@ -5,8 +5,8 @@
 # Contributor: Valere Monseur <valere dot monseur at ymail dot com>
 
 pkgname=eid-mw
-pkgver=4.1.21
-pkgrel=2
+pkgver=4.2.0
+pkgrel=1
 
 pkgdesc="eID Middleware is the middleware for the Belgian electronic identity card"
 arch=('i686' 'x86_64')
@@ -20,22 +20,19 @@ optdepends=(
     'ccid: A generic USB Chip/Smart Card Interface Devices driver'
     'pcsc-tools: PC/SC smartcard tools')
 
-# Do not try to have spaces or actually anything that is known to break parsing.
-# https://goo.gl/fqwbSi
-DLAGENTS=("http::/usr/bin/curl -A 'ArchLinux' -fLC - --retry 3 --retry-delay 3 -o %o %u")
 source=(
-    "http://eid.belgium.be/sites/default/files/downloads/$pkgname-$pkgver-v$pkgver.tar.gz"
+    "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
 )
 sha512sums=(
-    adcf6678754d366492c66e91cfefe6b950ca5aa601c55bb146998a9265aec90b3832e1514cbf905a5b13a1e3d27a28338ba36e7cab4ef62e506f1ae5e9bab9da
+    01aeba0450a57a82b4c51ed1fa611f92a32a06cf8cc735e0cd5f93693646e2e6e514e699c22855ab361789f9748dfed5ee51dc14deb5b8e3fc0b3ac4c8bc76c5
+    52c112cfe2b81c53cf8891bd71a2cf5de8de7aea70555cba17b8da182f632eb6b6f645c587bc6796b8d09a141182f430285f0429558837a92635e32e8966692b
 )
 
-# There is no .asc signature file on the server.
-# validpgpkeys=(
-#     B37D9040098C3DEEE00F6D08A35743EA6773D225 # Belgian eID Automatic Signing Key (official releases)
-#     # If you trust it, you can import it with
-#     # gpg --recv-keys B37D9040098C3DEEE00F6D08A35743EA6773D225
-# )
+validpgpkeys=(
+    D95426E309C0492990D8E8E2824A5E0010A04D46 # Belgian eID Automatic Signing Key (continuous builds)
+    # If you trust it, you can import it with
+    # gpg --recv-keys D95426E309C0492990D8E8E2824A5E0010A04D46
+)
 
 build() {
 	cd "$pkgname-$pkgver-v$pkgver"
