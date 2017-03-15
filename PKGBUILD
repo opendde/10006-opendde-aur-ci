@@ -3,7 +3,7 @@
 pkgname=sonic-pi
 _progname="Sonic Pi"
 pkgver=2.11.1
-pkgrel=1
+pkgrel=2
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -37,7 +37,7 @@ prepare() {
 	cd "${srcdir}/${pkgname}-${pkgver}"
 	mkdir patches
 	mv ../series ../*.patch patches
-	sed -i 's/lqt5scintilla2/lqscintilla2-qt5/g' "app/gui/qt/SonicPi.pro"
+	sed -i 's/lqt5scintilla2/lqscintilla2_qt5/g' "app/gui/qt/SonicPi.pro"
 	quilt push -a
 	mv "app/server/vendor/ruby-beautify/lib/ruby-beautify.rb" "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy.rb"
 	rm -fr "app/server/vendor/ruby-beautify/lib/ruby-beautify-legacy"
