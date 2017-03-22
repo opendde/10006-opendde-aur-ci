@@ -3,7 +3,7 @@
 pkgname=sonic-pi
 _progname="Sonic Pi"
 pkgver=2.11.1
-pkgrel=2
+pkgrel=3
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -11,7 +11,7 @@ license=('MIT')
 depends=('lua' 'qscintilla-qt5' 'jack' 'supercollider' 'ruby-hamster' 'ruby-wavefile'
 		 'ruby-activesupport' 'ruby-kramdown' 'ruby-rugged' 'ruby-multi_json'
 		 'ruby-thread_safe' 'ruby-gettext' 'ruby-fast_osc' 'ruby-aubio' 'qwt-qt5-opengl'
-		 'ruby-memoist' 'boost')
+		 'ruby-memoist' 'boost' 'ruby-sys-proctable')
 makedepends=('cmake' 'qt5-tools' 'sed' 'quilt')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
 			'jack2: better jackd if you want to use without gui'
