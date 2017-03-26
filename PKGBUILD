@@ -5,8 +5,8 @@
 # Contributor: Valere Monseur <valere dot monseur at ymail dot com>
 
 pkgname=eid-mw
-pkgver=4.2.0
-pkgrel=3
+pkgver=4.2.5
+pkgrel=1
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
 arch=('i686' 'x86_64')
@@ -22,19 +22,28 @@ optdepends=(
 conflicts=('eid-viewer')
 replaces=('eid-viewer')
 
+# Have to use a custom user agent, as the Belgian eID production server is
+# still experiencing this bug
+# https://twitter.com/Ewokske/status/826766200990466048
+# Do not try to have spaces or actually anything that is known to break
+# parsing in the user agent. So please let -A ArchLinux as it.
+# src.: Arch Linux Wiki: https://goo.gl/fqwbSi
+DLAGENTS=("https::/usr/bin/curl -A 'ArchLinux' -fLC - --retry 3 --retry-delay 3 -o %o %u")
 source=(
-    "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
+    "https://eid.belgium.be/sites/default/files/downloads/$pkgname-$pkgver-v$pkgver.tar.gz"
 )
 sha512sums=(
-    01aeba0450a57a82b4c51ed1fa611f92a32a06cf8cc735e0cd5f93693646e2e6e514e699c22855ab361789f9748dfed5ee51dc14deb5b8e3fc0b3ac4c8bc76c5
-    52c112cfe2b81c53cf8891bd71a2cf5de8de7aea70555cba17b8da182f632eb6b6f645c587bc6796b8d09a141182f430285f0429558837a92635e32e8966692b
+    bbdea1911e52aeb17efa3bd27d8b4c9bc893eb479acd188d142cad8ae5076e32ab91bb0f63790caab0bc2f4823b90b4b85fcf506fb84bdd02b89d3b8a05af8c9
 )
 
-validpgpkeys=(
-    D95426E309C0492990D8E8E2824A5E0010A04D46 # Belgian eID Automatic Signing Key (continuous builds)
-    # If you trust it, you can import it with
-    # gpg --recv-keys D95426E309C0492990D8E8E2824A5E0010A04D46
-)
+# asc file not present yet, waiting for the bug report I filled to be solved.
+#validpgpkeys=(
+#    # Belgian eID Automatic Signing Key (official releases)
+#    # If you trust it, you can import it with
+#    # gpg --recv-keys B37D9040098C3DEEE00F6D08A35743EA6773D225
+#    # src.: https://eid.belgium.be/en/using_your_eid/installing_the_eid_software/linux
+#    B37D9040098C3DEEE00F6D08A35743EA6773D225
+#)
 
 build() {
     cd "$pkgname-$pkgver-v$pkgver"
