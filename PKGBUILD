@@ -6,7 +6,7 @@
 
 pkgname=eid-mw
 pkgver=4.2.5
-pkgrel=1
+pkgrel=2
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
 arch=('i686' 'x86_64')
@@ -22,28 +22,57 @@ optdepends=(
 conflicts=('eid-viewer')
 replaces=('eid-viewer')
 
-# Have to use a custom user agent, as the Belgian eID production server is
-# still experiencing this bug
-# https://twitter.com/Ewokske/status/826766200990466048
-# Do not try to have spaces or actually anything that is known to break
-# parsing in the user agent. So please let -A ArchLinux as it.
-# src.: Arch Linux Wiki: https://goo.gl/fqwbSi
-DLAGENTS=("https::/usr/bin/curl -A 'ArchLinux' -fLC - --retry 3 --retry-delay 3 -o %o %u")
+# It has been decided upstream not to sign sources using the GPG key as this
+# was confusing users who are not used to use .asc signature files.  So while
+# the binaries proposed on this page
+# https://eid.belgium.be/en/using_your_eid/installing_the_eid_software/linux
+# are signed, the sources are not.  For security-conscious users, it is asked
+# to use the dist server instead.
+#
+# On Wed, Mar 29, 2017 at 11:08:34AM +0200, William Gathoye wrote:
+# > On 03/29/2017 10:54 AM, Wouter Verhelst wrote:
+# >> It is not meant for the security-conscious. If you want to be 100%
+# >> certain, then https://dist.eid.belgium.be/continuous/sources/ is signed
+# >> by a GPG key.
+# >
+# > Ok. I'm gonna switch to that channel again then (for Arch).
+#
+# Good, I was hoping you'd say that 
+#
+# > But then why do you have specified on the eid.belgium.be page that the
+# > binaries could be checked using the GPG key
+# > B37D9040098C3DEEE00F6D08A35743EA6773D225 as we cannot check it as the
+# > .asc file is not present.?
+#
+# The precompiled binaries in the repositories that can be found on
+# files.eid.belgium.be (and for which the "eid-archive" packages on that page add
+# configuration to supported distributions) *are* signed with that key. The
+# sources aren't, for reasons as explained above.
+#
+# >> Yes, I know, I set that up (by request of the then-current arch
+# >> maintainer, as it happens)
+# >
+# > Yes, indeed. wget is me. I'm AM the Arch Linux. Thanks for taking this up 
+#
+# I know, but it was your predecessor ("Alad") who asked for that, and by
+# whose request I set that up.
+#
+# [...]
 source=(
-    "https://eid.belgium.be/sites/default/files/downloads/$pkgname-$pkgver-v$pkgver.tar.gz"
+    "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
 )
 sha512sums=(
     bbdea1911e52aeb17efa3bd27d8b4c9bc893eb479acd188d142cad8ae5076e32ab91bb0f63790caab0bc2f4823b90b4b85fcf506fb84bdd02b89d3b8a05af8c9
+    0468426bb836a7429fd7f0efeec485bf5ec67cc069d2ada20cb637de69a295c20bab30fd72a5d2b8aad2dfc70ec040773d53bd4f4f24c37892b3ccc5110f877b
 )
 
 # asc file not present yet, waiting for the bug report I filled to be solved.
-#validpgpkeys=(
-#    # Belgian eID Automatic Signing Key (official releases)
-#    # If you trust it, you can import it with
-#    # gpg --recv-keys B37D9040098C3DEEE00F6D08A35743EA6773D225
-#    # src.: https://eid.belgium.be/en/using_your_eid/installing_the_eid_software/linux
-#    B37D9040098C3DEEE00F6D08A35743EA6773D225
-#)
+validpgpkeys=(
+    # Belgian eID Automatic Signing Key (continuous builds)
+    # If you trust it, you can import it with
+    # gpg --recv-keys D95426E309C0492990D8E8E2824A5E0010A04D46
+    D95426E309C0492990D8E8E2824A5E0010A04D46
+)
 
 build() {
     cd "$pkgname-$pkgver-v$pkgver"
