@@ -3,9 +3,9 @@
 
 pkgname=asp
 pkgver=1
-pkgrel=1
+pkgrel=2
 pkgdesc='Arch Linux build source file management'
-arch=('x86_64')
+arch=('any')
 url=https://github.com/falconindy/asp
 license=('MIT')
 depends=('awk' 'bash' 'jq')
