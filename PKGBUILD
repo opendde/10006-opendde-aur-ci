@@ -1,25 +1,26 @@
+# Maintainer: Hui Yiqun <huiyiqun@gmail.com>
 # Contributor: Doug Newgard <scimmia at archlinux dot info>
 # Contributor: jfperini <@jfperini>
 
 pkgname=vocal
-pkgver=1.0
-_revision=r284
+pkgver=2.0.1
+_tag=2.0.20
 pkgrel=1
-pkgdesc='Podcast Client for the Modern Desktop'
+pkgdesc='A powerful, beautiful, and simple podcast client for the modern free desktop.'
 arch=('i686' 'x86_64')
 url='http://www.vocalproject.net'
 license=('GPL3')
-depends=('libnotify' 'granite' 'gst-plugins-base-libs' 'clutter-gtk')
+depends=('libnotify' 'libxml2' 'granite' 'gst-plugins-base-libs' 'clutter-gtk' 'sqlite')
 makedepends=('vala' 'cmake')
-source=("https://downloads.sourceforge.net/project/vocalpodcast/vocal_$pkgver.tar.gz")
-md5sums=('a1addd97e1f79c5fae4ede3661415be0')
+source=("https://github.com/needle-and-thread/vocal/archive/$_tag.tar.gz")
+md5sums=('e831a73435b1c08026ac8063e528b25d')
 
 prepare() {
-  [[ -d $pkgname-$pkgver+$_revision/build/ ]] || mkdir -p $pkgname-$pkgver+$_revision/build/
+  [[ -d $pkgname-$_tag/build/ ]] || mkdir -p $pkgname-$_tag/build/
 }
 
 build() {
-  cd $pkgname-$pkgver+$_revision/build/
+  cd $pkgname-$_tag/build/
 
   cmake .. -DCMAKE_INSTALL_PREFIX=/usr
 
@@ -27,7 +28,7 @@ build() {
 }
 
 package() {
-  cd $pkgname-$pkgver+$_revision/build/
+  cd $pkgname-$_tag/build/
 
   make DESTDIR="$pkgdir" install
 }
