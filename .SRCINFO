@@ -1,0 +1,16 @@
+pkgbase = python-async_generator
+	pkgdesc = Easy to write async iterators in Python 3.5
+	pkgver = 1.8
+	pkgrel = 1
+	url = https://github.com/njsmith/async_generator
+	arch = any
+	license = MIT
+	checkdepends = python-pytest
+	checkdepends = python-pytest-asyncio
+	makedepends = python-setuptools
+	depends = python
+	source = https://github.com/njsmith/async_generator/archive/v1.8.tar.gz
+	sha256sums = 4e5558912b5a7d142d4740a54f2e731e6492a5859e5cfcc166190c612de77874
+
+pkgname = python-async_generator
+
