@@ -1,0 +1,15 @@
+pkgbase = python-backports.csv
+	pkgdesc = Backport of Python 3 csv module.
+	pkgver = 1.0.5
+	pkgrel = 1
+	url = https://github.com/ryanhiebert/backports.csv
+	arch = any
+	license = BSD
+	depends = python
+	provides = python-backports.csv
+	options = !emptydirs
+	source = python-backports.csv-1.0.5.zip::https://github.com/ryanhiebert/backports.csv/archive/1.0.5.zip
+	md5sums = 83115c741cf32715eff3573b0ec5bb06
+
+pkgname = python-backports.csv
+
