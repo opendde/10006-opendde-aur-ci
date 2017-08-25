@@ -1,12 +1,12 @@
-# Maintainer: William Gathoye <william at gathoye dot be>
+# Maintainer: William Gathoye <william + aur at gathoye dot be>
 # Contributor: Emil Vanherp <emil dot vanherp at hotmail dot com>
 # Contributor: Alad Wenter <https://wiki.archlinux.org/index.php/Special:EmailUser/Alad>
 # Contributor: Xavier D. <magicrhesus at ouranos dot be>
 # Contributor: Valere Monseur <valere dot monseur at ymail dot com>
 
 pkgname=eid-mw
-pkgver=4.2.5
-pkgrel=2
+pkgver=4.2.12
+pkgrel=1
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
 arch=('i686' 'x86_64')
@@ -62,8 +62,8 @@ source=(
     "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
 )
 sha512sums=(
-    bbdea1911e52aeb17efa3bd27d8b4c9bc893eb479acd188d142cad8ae5076e32ab91bb0f63790caab0bc2f4823b90b4b85fcf506fb84bdd02b89d3b8a05af8c9
-    0468426bb836a7429fd7f0efeec485bf5ec67cc069d2ada20cb637de69a295c20bab30fd72a5d2b8aad2dfc70ec040773d53bd4f4f24c37892b3ccc5110f877b
+    02b6e5becf1e1d1a80a7f69155aa089855bfe93f79421f1be2fa479d92cf9902cf55fb5830abfcb49d429f3086fa1f56ef55f61ed7f22b7886a6e2b628f049d0
+    cdc277011bc8cb5c523f248aa665c30d61f4fd52c9895a27c3c3204dc8ee99698be7eb2dd61496ca6fb7446f782b61dc89758261d140fa4ac814e74edeaf9002
 )
 
 # asc file not present yet, waiting for the bug report I filled to be solved.
