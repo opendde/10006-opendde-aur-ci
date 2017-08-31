@@ -1,6 +1,0 @@
-01-do-no-require-unused-ruby-gems.patch
-02-use-debian-gems.patch
-03-rename-ruby-beautify-legacy.patch
-04_rp_build_app.patch
-05_adjust_paths.patch
-06_temp_remove_randstream.patch
