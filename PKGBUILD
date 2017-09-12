@@ -1,7 +1,7 @@
 # Maintainer: Christoph Scholz <christoph.scholz@gmail.com>
 pkgname=sonic-pi
 pkgver=3.0.1
-pkgrel=2
+pkgrel=3
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -14,11 +14,11 @@ optdepends=('qjackctl: for graphical jackd spawning/configuration'
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz"
         "osmid::git+https://github.com/llloret/osmid.git"
         "${pkgname}.png" "${pkgname}.desktop" "${pkgname}")
-md5sums=('538a3bff5a6f015242fd2a51d13e395a'
-         'SKIP'
-         'e3ca8a1d949baf35cdf438c8d10159ff'
-         '19a64d717674f75918c176197650b44a'
-         'a051b9e7d0499b1bf619726668021809')
+sha256sums=('05ad0928ff6390bbc63892734fc074d9c3eba452a4031f8e2de6b1e1528f8f5f'
+            'SKIP'
+            '3f5c67ad2478003de9962cf7d7054f19ce4a420168cd838b8f513b9ed96a1d00'
+            'c85abbf8a386ec56a2c0ffcb54d4c0ab0235574965ded3097053f1b3f602dd34'
+            '69ed1892a41bbbb487fe3c13f8c5a2f0e65adfc66d75f45c9a4d2d8d750c88d4')
 
 prepare() {
     cd "${srcdir}/${pkgname}-${pkgver}"
