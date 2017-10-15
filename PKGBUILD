@@ -6,14 +6,14 @@
 
 pkgname=eid-mw
 pkgver=4.2.12
-pkgrel=1
+pkgrel=2
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
 arch=('i686' 'x86_64')
 url='http://eid.belgium.be/'
 license=('LGPL3')
 
-depends=('pcsclite' 'gtk3' 'libproxy')
+depends=('gtk3' 'libproxy' 'curl')
 optdepends=(
     'firefox: extension for Belgian eid'
     'acsccid: ACS CCID smart card readers'
