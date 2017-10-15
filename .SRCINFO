@@ -1,14 +1,14 @@
 pkgbase = eid-mw
 	pkgdesc = The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)
 	pkgver = 4.2.12
-	pkgrel = 1
+	pkgrel = 2
 	url = http://eid.belgium.be/
 	arch = i686
 	arch = x86_64
 	license = LGPL3
-	depends = pcsclite
 	depends = gtk3
 	depends = libproxy
+	depends = curl
 	optdepends = firefox: extension for Belgian eid
 	optdepends = acsccid: ACS CCID smart card readers
 	optdepends = ccid: A generic USB Chip/Smart Card Interface Devices driver
