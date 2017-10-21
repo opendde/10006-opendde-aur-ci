@@ -1,10 +1,9 @@
 pkgbase = python-aiohttp-cors
 	pkgdesc = Implements Cross Origin Resource Sharing (CORS) support for aiohttp
 	pkgver = 0.5.3
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/aio-libs/aiohttp-cors
-	arch = i686
-	arch = x86_64
+	arch = any
 	license = Apache
 	makedepends = python-setuptools
 	depends = python>=3.4.1

@@ -2,9 +2,9 @@
 _name=aiohttp-cors
 pkgname=python-aiohttp-cors
 pkgver=0.5.3
-pkgrel=1
+pkgrel=2
 pkgdesc="Implements Cross Origin Resource Sharing (CORS) support for aiohttp"
-arch=('i686' 'x86_64')
+arch=('any')
 url="https://github.com/aio-libs/aiohttp-cors"
 license=('Apache')
 depends=('python>=3.4.1' 'python-aiohttp')
