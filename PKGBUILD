@@ -1,12 +1,12 @@
 # Maintainer: Christoph Scholz <christoph.scholz@gmail.com>
 pkgname=sonic-pi
 pkgver=3.0.1
-pkgrel=3
+pkgrel=4
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
 license=('MIT')
-depends=('lua' 'ruby' 'qscintilla-qt5' 'jack' 'supercollider' 'qwt' 'boost' 'erlang-nox' 'aubio' 'libffi')
+depends=('lua' 'ruby' 'qscintilla-qt5' 'jack' 'supercollider' 'qwt' 'boost' 'erlang-nox' 'aubio' 'libffi' 'http-parser')
 makedepends=('cmake' 'qt5-tools' 'sed')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
             'jack2: better jackd if you want to use without gui'
