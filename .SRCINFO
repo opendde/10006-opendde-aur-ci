@@ -1,0 +1,18 @@
+pkgbase = python-pysendfile
+	pkgdesc = A Python interface to sendfile(2)
+	pkgver = 2.0.1
+	pkgrel = 1
+	url = https://github.com/giampaolo/pysendfile
+	arch = any
+	license = MIT
+	makedepends = python-setuptools
+	depends = python
+	source = https://files.pythonhosted.org/packages/source/p/pysendfile/pysendfile-2.0.1.tar.gz
+	sha256sums = 510a414b270986fba3c79cb76d90a4c910c701bfb43ff983a5d4e92846050e17
+
+pkgname = python-pysendfile
+	depends = python
+
+pkgname = python2-pysendfile
+	depends = python
+
