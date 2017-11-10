@@ -1,8 +1,7 @@
 # Maintainer: Joris Engbers <info at joris engbers dot nl>
 
-_distname=kaptan
 pkgname=python-kaptan
-pkgver=0.5.8
+pkgver=0.5.9
 pkgrel=1
 pkgdesc="Python configuration manager"
 arch=('any')
@@ -11,8 +10,8 @@ license=('BSD')
 depends=('python' 'python-yaml')
 makedepends=('python-setuptools')
 options=(!emptydirs)
-source=(https://pypi.python.org/packages/source/${_distname:0:1}/$_distname/$_distname-${pkgver}.tar.gz)
-md5sums=('a6ab9fc711b243a7652903c969c72319')
+source=(https://pypi.python.org/packages/37/28/65abc7998f22daeb5ed2176bb3510418ae313f495975c84c7b898a1b3d39/kaptan-0.5.9.tar.gz)
+md5sums=('fd8faa01ee93c44b6cc8d0642788a2a6')
 
 package() {
   cd "$srcdir/$_distname-$pkgver"
