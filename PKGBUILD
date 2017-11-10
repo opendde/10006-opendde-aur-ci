@@ -14,7 +14,7 @@ source=(https://pypi.python.org/packages/37/28/65abc7998f22daeb5ed2176bb3510418a
 md5sums=('fd8faa01ee93c44b6cc8d0642788a2a6')
 
 package() {
-  cd "$srcdir/$_distname-$pkgver"
+  cd "$srcdir/kaptan-$pkgver"
   python setup.py install --root="$pkgdir/" --optimize=1 || exit1
 }
 
