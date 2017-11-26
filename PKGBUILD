@@ -5,8 +5,8 @@
 # Contributor: Valere Monseur <valere dot monseur at ymail dot com>
 
 pkgname=eid-mw
-pkgver=4.2.12
-pkgrel=2
+pkgver=4.3.3
+pkgrel=1
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
 arch=('i686' 'x86_64')
@@ -62,8 +62,8 @@ source=(
     "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
 )
 sha512sums=(
-    02b6e5becf1e1d1a80a7f69155aa089855bfe93f79421f1be2fa479d92cf9902cf55fb5830abfcb49d429f3086fa1f56ef55f61ed7f22b7886a6e2b628f049d0
-    cdc277011bc8cb5c523f248aa665c30d61f4fd52c9895a27c3c3204dc8ee99698be7eb2dd61496ca6fb7446f782b61dc89758261d140fa4ac814e74edeaf9002
+    aa213003a7c8201f5df1d3cf8238fa17741eaddaa0f9a232f1e4003428893ecd970ca6defc8f5da21b2935c27622969884b2bb463fb636a79b9b9707d447cc8e
+    94aa14d8c940798fb495d1a830af249ad47670a885639983dad11801ecbe7884b04f7c5b455699f57f8b798f0f1e88486434470d930a9be138d8833e83003d76
 )
 
 # asc file not present yet, waiting for the bug report I filled to be solved.
