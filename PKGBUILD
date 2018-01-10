@@ -1,6 +1,6 @@
 # Maintainer: Mateusz Galazyn <carbolymer@gmail.com>
 pkgname=python-influxdb
-pkgver=4.1.1
+pkgver=5.0.0
 pkgrel=1
 pkgdesc="Python client for InfluxDB"
 arch=('any')
@@ -11,7 +11,7 @@ makedepends=('python-setuptools')
 optdepends=('influxdb')
 options=(!emptydirs)
 source=("https://github.com/influxdb/influxdb-python/archive/v$pkgver.tar.gz")
-md5sums=('87b14b8dac3541dbf99350ccd5541f9b')
+md5sums=('dfca3ef328621a3af83f42b3587cca01')
 
 package() {
   cd "$srcdir/influxdb-python-$pkgver"
