@@ -1,0 +1,14 @@
+pkgbase = python-langdetect
+	pkgdesc = Language detection library ported from Google's language-detection
+	pkgver = 1.0.7
+	pkgrel = 1
+	url = https://github.com/Mimino666/langdetect
+	arch = any
+	license = APACHE
+	makedepends = python-setuptools
+	depends = python
+	source = https://files.pythonhosted.org/packages/source/l/langdetect/langdetect-1.0.7.zip
+	md5sums = 6675db2d8abccb97246372767270e912
+
+pkgname = python-langdetect
+
