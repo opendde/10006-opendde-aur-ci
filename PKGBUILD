@@ -1,7 +1,7 @@
 # Maintainer: Christoph Scholz <christoph.scholz@gmail.com>
 pkgname=sonic-pi
-pkgver=3.0.1
-pkgrel=4
+pkgver=3.1.0
+pkgrel=1
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
@@ -14,7 +14,7 @@ optdepends=('qjackctl: for graphical jackd spawning/configuration'
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz"
         "osmid::git+https://github.com/llloret/osmid.git"
         "${pkgname}.png" "${pkgname}.desktop" "${pkgname}")
-sha256sums=('05ad0928ff6390bbc63892734fc074d9c3eba452a4031f8e2de6b1e1528f8f5f'
+sha256sums=('08de9d4ed3c81bbe69061d50c79c6bed48a8d3212e11fec6c3ef2197423f466b'
             'SKIP'
             '3f5c67ad2478003de9962cf7d7054f19ce4a420168cd838b8f513b9ed96a1d00'
             'c85abbf8a386ec56a2c0ffcb54d4c0ab0235574965ded3097053f1b3f602dd34'
@@ -37,10 +37,10 @@ build() {
     erlc osc.erl pi_server.erl
 
     cd "${srcdir}/${pkgname}-${pkgver}/app/gui/qt"
-    ../../server/bin/compile-extensions.rb
-    ../../server/bin/i18n-tool.rb -t
+    ../../server/ruby/bin/compile-extensions.rb
+    ../../server/ruby/bin/i18n-tool.rb -t
     cp -f ruby_help.tmpl ruby_help.h
-    ../../server/bin/qt-doc.rb -o ruby_help.h
+    ../../server/ruby/bin/qt-doc.rb -o ruby_help.h
     lrelease SonicPi.pro 
     qmake-qt5 SonicPi.pro 
     make
@@ -65,7 +65,7 @@ package() {
     install -d "${pkgdir}/usr/share/licenses/${pkgname}"
     install -Dm644 "LICENSE.md" "${pkgdir}/usr/share/licenses/${pkgname}"
 
-    install -d "${pkgdir}/opt/${pkgname}/app/server/native/linux/osmid"
-    install -Dm755 "${srcdir}/osmid/build/m2o" "${pkgdir}/opt/${pkgname}/app/server/native/linux/osmid"
-    install -Dm755 "${srcdir}/osmid/build/o2m" "${pkgdir}/opt/${pkgname}/app/server/native/linux/osmid"
+    install -d "${pkgdir}/opt/${pkgname}/app/server/native/osmid"
+    install -Dm755 "${srcdir}/osmid/build/m2o" "${pkgdir}/opt/${pkgname}/app/server/native/osmid"
+    install -Dm755 "${srcdir}/osmid/build/o2m" "${pkgdir}/opt/${pkgname}/app/server/native/osmid"
 }
