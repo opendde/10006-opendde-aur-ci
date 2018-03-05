@@ -1,4 +1,4 @@
-# Maintainer: Daniel M. Capella <polyzen@archlinux.info>
+# Maintainer: Daniel M. Capella <polycitizen@gmail.com>
 # Contributor: Maxwell "Synthead" Pray <synthead@gmail.com>
 # Contributor: Fergus Symon <fergofrog@fergofrog.com>
 
