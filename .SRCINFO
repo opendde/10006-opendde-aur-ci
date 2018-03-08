@@ -1,6 +1,6 @@
 pkgbase = vocal
 	pkgdesc = A powerful, beautiful, and simple podcast client for the modern free desktop.
-	pkgver = 2.0.1
+	pkgver = 2.1.6
 	pkgrel = 3
 	url = http://www.vocalproject.net
 	arch = i686
@@ -10,7 +10,7 @@ pkgbase = vocal
 	makedepends = cmake
 	depends = libnotify
 	depends = libxml2
-	depends = granite
+	depends = granite-git
 	depends = clutter-gst
 	depends = clutter-gtk
 	depends = sqlite
@@ -18,8 +18,9 @@ pkgbase = vocal
 	depends = json-glib
 	depends = webkit2gtk
 	depends = libgee
-	source = https://github.com/needle-and-thread/vocal/archive/2.0.20.tar.gz
-	md5sums = e831a73435b1c08026ac8063e528b25d
+	depends = intltool
+	source = https://github.com/needle-and-thread/vocal/archive/2.1.6.tar.gz
+	md5sums = 522a8db42c114836d62d302dece95fd1
 
 pkgname = vocal
 
