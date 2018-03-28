@@ -1,16 +1,15 @@
 # Maintainer: Christoph Scholz <christoph.scholz@gmail.com>
 pkgname=sonic-pi
 pkgver=3.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="A music-centric programming environment, originally built for the raspberry pi."
 arch=('i686' 'x86_64')
 url="http://sonic-pi.net/"
 license=('MIT')
-depends=('lua' 'ruby' 'qscintilla-qt5' 'jack' 'supercollider' 'qwt' 'boost' 'erlang-nox' 'aubio' 'libffi' 'http-parser')
+depends=('lua' 'ruby' 'qscintilla-qt5' 'jack' 'supercollider' 'sc3-plugins' 'qwt' 'boost' 'erlang-nox' 'aubio' 'libffi' 'http-parser')
 makedepends=('cmake' 'qt5-tools' 'sed')
 optdepends=('qjackctl: for graphical jackd spawning/configuration'
-            'jack2: better jackd if you want to use without gui'
-            'supercollider-with-plugins: includes sc3-plugins e.g. piano synth')
+            'jack2: better jackd if you want to use without gui')
 source=("https://github.com/samaaron/${pkgname}/archive/v${pkgver}.tar.gz"
         "osmid::git+https://github.com/llloret/osmid.git"
         "${pkgname}.png" "${pkgname}.desktop" "${pkgname}")
