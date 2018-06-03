@@ -5,7 +5,7 @@
 # Contributor: Valere Monseur <valere dot monseur at ymail dot com>
 
 pkgname=eid-mw
-pkgver=4.3.7
+pkgver=4.4.2
 pkgrel=1
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
@@ -63,11 +63,10 @@ source=(
     "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
 )
 sha512sums=(
-    5321f83839cc8342dae0e604f30fb8b26663eaf8b4ad1d33419c5f2790373376e9e9d26d46cd6cf7dfa561b72436ab1b0497c70f8fd394d0f21825855bbe5f17
-    76b507e0fada0797baa2d13a9aa5efff92d014bd7ea043f0e4eb7cc31cb977e7d737e10adfbbbad21356df64c1263cc490577317685e1256d488e93061b0c8f6
+    e0c4e30f872fa023d913fdb3e0256b6706247b8a2f94afb7565645ec0c521dd358d99c534e3c81b0e95f11be4c5b451aaa22c466596a5c00e408382d8eda1d22
+    8344c15be577729be4cdb00d9920ebfd3a0e7d8b74075729df94f4db4ca89eda259fa8353e2215273731b5d7c144a035f33b8df3f89243231cb2b434280c24b5
 )
 
-# asc file not present yet, waiting for the bug report I filled to be solved.
 validpgpkeys=(
     # Belgian eID Automatic Signing Key (continuous builds)
     # If you trust it, you can import it with
