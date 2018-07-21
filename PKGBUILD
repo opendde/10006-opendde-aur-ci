@@ -2,13 +2,14 @@
 _pkgmain=backports.csv
 pkgname=python-$_pkgmain
 pkgver=1.0.6
-pkgrel=1
+pkgrel=2
 pkgdesc="Backport of Python 3 csv module."
 arch=('any')
 url="https://github.com/ryanhiebert/backports.csv"
 license=('BSD')
 groups=()
 depends=('python')
+makedepends=('python-setuptools')
 provides=('python-backports.csv')
 options=(!emptydirs)
 source=($pkgname-$pkgver.zip::https://github.com/ryanhiebert/backports.csv/archive/${pkgver}.zip)

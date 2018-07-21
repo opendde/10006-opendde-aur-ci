@@ -1,10 +1,11 @@
 pkgbase = python-backports.csv
 	pkgdesc = Backport of Python 3 csv module.
 	pkgver = 1.0.6
-	pkgrel = 1
+	pkgrel = 2
 	url = https://github.com/ryanhiebert/backports.csv
 	arch = any
 	license = BSD
+	makedepends = python-setuptools
 	depends = python
 	provides = python-backports.csv
 	options = !emptydirs
