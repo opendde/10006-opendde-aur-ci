@@ -2,7 +2,7 @@
 # Contributor: Maxwell "Synthead" Pray <synthead@gmail.com>
 # Contributor: Fergus Symon <fergofrog@fergofrog.com>
 
-pkgbase=razer
+pkgbase=razercfg
 pkgname=('razercfg' 'razerd')
 pkgver=0.39
 pkgrel=1
