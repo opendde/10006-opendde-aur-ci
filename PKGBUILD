@@ -1,7 +1,7 @@
 # Maintainer: Massimiliano Torromeo <massimiliano.torromeo@gmail.com>
 
 pkgname=htmlhint
-pkgver=0.9.13
+pkgver=0.10.1
 pkgrel=1
 pkgdesc="Static Code Analysis Tool for HTML, you can use it with IDE or in build system."
 arch=(any)
@@ -14,7 +14,7 @@ depends=('nodejs')
 makedepends=('npm')
 source=(http://registry.npmjs.org/$pkgname/-/$pkgname-$pkgver.tgz)
 noextract=($pkgname-$pkgver.tgz)
-sha256sums=('11630ef866d266d6b444de377771eba7807744b93a79017f009422dc1c9b65e5')
+sha256sums=('408fb0037fcb33e7c7f5142b91389ae5a442f800714ee6018f0899b7c076bcda')
 
 package() {
 	npm install -g --user root --prefix "$pkgdir"/usr "$srcdir"/$pkgname-$pkgver.tgz
