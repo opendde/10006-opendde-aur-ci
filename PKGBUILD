@@ -5,8 +5,8 @@
 # Contributor: Valere Monseur <valere dot monseur at ymail dot com>
 
 pkgname=eid-mw
-pkgver=4.4.2
-pkgrel=2
+pkgver=4.4.8
+pkgrel=1
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
 arch=('i686' 'x86_64')
@@ -63,8 +63,8 @@ source=(
     "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
 )
 sha512sums=(
-    '1193d9c066d71294ac33edb256a0429c6c9e64c4445015503e09023ea518f5b3b1f4f164eb13305161cf66002c4816787b30242039f3b93e3e6c2157f1c9065e'
-    'a213abea4220c398aa11ab512580ef2d1d17dc283018e643a62b7dffc46d6141c8b249e820fc75413eb71842e36579c438fa20c8535c950119d0b2a74271ec76'
+    '58f45f07101e6c6904fa63f7c45351163b04f3abc59ea6438d93d41765e3aa3ae33834f4f9027d694107b98f71af876f1ad0591fd01b00b0285b8d3e56c5dcdf'
+    '45f893e4218894b49c4754b879a4a75a19d6c83f8f321394fd49b96f63069d9860606d19fdd6a6a58996687af503ed9107b46401bea0ea27c87b80783b912687'
 )
 
 validpgpkeys=(
