@@ -2,7 +2,7 @@
 # Contributor: speps <speps dot aur dot archlinux dot org>
 
 pkgname=beatslash-lv2
-pkgver=1.0.2
+pkgver=1.0.5
 pkgrel=1
 pkgdesc="A set of LV2 plugins to mangle, slash, repeat and do much more with your beats."
 arch=('i686' 'x86_64')
@@ -12,8 +12,8 @@ groups=('lv2-plugins')
 depends=('lv2' 'gtkmm')
 makedepends=('python2' 'lvtk')
 provides=('lv2.beatslash')
-source=("https://github.com/blablack/$pkgname/archive/v$pkgver.tar.gz")
-md5sums=('321edc446c591750b014d2ef90118f08')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/blablack/$pkgname/archive/$pkgver.tar.gz")
+md5sums=('f992ea91cdf4e223817d94cc251e089d')
 
 prepare() {
   cd "$pkgname-$pkgver"
