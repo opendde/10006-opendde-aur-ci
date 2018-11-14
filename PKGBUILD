@@ -3,7 +3,7 @@
 
 pkgname=python-poyo
 _pkgname=poyo
-pkgver=0.4.0
+pkgver=0.4.2
 pkgrel=1
 pkgdesc="A YAML Parser for Python"
 arch=(any)
@@ -18,7 +18,7 @@ replaces=()
 backup=()
 options=(!emptydirs)
 source=("https://pypi.io/packages/source/p/${_pkgname}/${_pkgname}-${pkgver}.tar.gz")
-md5sums=('5276a97514e262852998c81c6645fc17')
+sha256sums=('c34a5413191210ed564640510e9c4a4ba3b698746d6b454d46eb5bfb30edcd1d')
 
 package() {
   cd "$srcdir/$_pkgname-$pkgver"

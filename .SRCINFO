@@ -1,6 +1,6 @@
 pkgbase = python-poyo
 	pkgdesc = A YAML Parser for Python
-	pkgver = 0.4.0
+	pkgver = 0.4.2
 	pkgrel = 1
 	url = https://github.com/hackebrot/poyo
 	arch = any
@@ -8,8 +8,8 @@ pkgbase = python-poyo
 	license = MIT
 	depends = python
 	options = !emptydirs
-	source = https://pypi.io/packages/source/p/poyo/poyo-0.4.0.tar.gz
-	md5sums = 5276a97514e262852998c81c6645fc17
+	source = https://pypi.io/packages/source/p/poyo/poyo-0.4.2.tar.gz
+	sha256sums = c34a5413191210ed564640510e9c4a4ba3b698746d6b454d46eb5bfb30edcd1d
 
 pkgname = python-poyo
 
