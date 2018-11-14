@@ -44,7 +44,7 @@ package_razerd() {
   sed -i '$d' CMakeLists.txt
   make DESTDIR="$pkgdir" install
 
-  install -Dm644 razer.conf "$pkgdir"/etc/razer.conf
+  install -Dm644 -t "$pkgdir"/etc razer.conf
   install -Dm644 "$srcdir"/tmpfile.conf\
     "$pkgdir"/usr/lib/tmpfiles.d/razerd.conf
 }
