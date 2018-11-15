@@ -38,7 +38,6 @@ package_razerd() {
   depends=('libusb')
   makedepends=('cmake')
   backup=('etc/razer.conf')
-  install=razercfg.install
 
   cd razercfg-$pkgver
   sed -i '$d' CMakeLists.txt
