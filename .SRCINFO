@@ -1,6 +1,6 @@
 pkgbase = eid-mw
 	pkgdesc = The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)
-	pkgver = 4.4.8
+	pkgver = 4.4.13
 	pkgrel = 1
 	url = http://eid.belgium.be/
 	arch = i686
@@ -16,11 +16,11 @@ pkgbase = eid-mw
 	optdepends = pcsc-tools: PC/SC smartcard tools
 	conflicts = eid-viewer
 	replaces = eid-viewer
-	source = https://dist.eid.belgium.be/continuous/sources/eid-mw-4.4.8-v4.4.8.tar.gz
-	source = https://dist.eid.belgium.be/continuous/sources/eid-mw-4.4.8-v4.4.8.tar.gz.asc
+	source = https://dist.eid.belgium.be/continuous/sources/eid-mw-4.4.13-v4.4.13.tar.gz
+	source = https://dist.eid.belgium.be/continuous/sources/eid-mw-4.4.13-v4.4.13.tar.gz.asc
 	validpgpkeys = D95426E309C0492990D8E8E2824A5E0010A04D46
-	sha512sums = 58f45f07101e6c6904fa63f7c45351163b04f3abc59ea6438d93d41765e3aa3ae33834f4f9027d694107b98f71af876f1ad0591fd01b00b0285b8d3e56c5dcdf
-	sha512sums = 45f893e4218894b49c4754b879a4a75a19d6c83f8f321394fd49b96f63069d9860606d19fdd6a6a58996687af503ed9107b46401bea0ea27c87b80783b912687
+	sha512sums = 32c59198042d7547737d12e8faf4faa070f546982bb13f4662f500eb10d5f258bbdf2e7dd1a33ad564be9ccf8648d4e3228f486361264181dfa08b122e83aaf1
+	sha512sums = 6257d5b39fc2f42f2e5fe8bc6fb01301435833c68840957f7714050b04ab9f17131a41c9a844f00a51eaa858e154fe7bd8b0d9496e48d4eb4b6f37d20bea38b2
 
 pkgname = eid-mw
 

@@ -5,7 +5,7 @@
 # Contributor: Valere Monseur <valere dot monseur at ymail dot com>
 
 pkgname=eid-mw
-pkgver=4.4.8
+pkgver=4.4.13
 pkgrel=1
 
 pkgdesc='The middleware, viewer and Firefox extension for the Belgian electronic identity card (Belgian eID)'
@@ -60,11 +60,11 @@ replaces=('eid-viewer')
 #
 # [...]
 source=(
-    "https://dist.eid.belgium.be/continuous/sources/$pkgname-$pkgver-v$pkgver.tar.gz"{,.asc}
+    "https://dist.eid.belgium.be/continuous/sources/${pkgname}-${pkgver}-v${pkgver}.tar.gz"{,.asc}
 )
 sha512sums=(
-    '58f45f07101e6c6904fa63f7c45351163b04f3abc59ea6438d93d41765e3aa3ae33834f4f9027d694107b98f71af876f1ad0591fd01b00b0285b8d3e56c5dcdf'
-    '45f893e4218894b49c4754b879a4a75a19d6c83f8f321394fd49b96f63069d9860606d19fdd6a6a58996687af503ed9107b46401bea0ea27c87b80783b912687'
+    '32c59198042d7547737d12e8faf4faa070f546982bb13f4662f500eb10d5f258bbdf2e7dd1a33ad564be9ccf8648d4e3228f486361264181dfa08b122e83aaf1'
+    '6257d5b39fc2f42f2e5fe8bc6fb01301435833c68840957f7714050b04ab9f17131a41c9a844f00a51eaa858e154fe7bd8b0d9496e48d4eb4b6f37d20bea38b2'
 )
 
 validpgpkeys=(
@@ -78,13 +78,13 @@ validpgpkeys=(
 )
 
 build() {
-    cd "$pkgname-$pkgver-v$pkgver"
+    cd "${pkgname}-${pkgver}-v${pkgver}"
     sed -i "s%c_rehash%openssl rehash%g" plugins_tools/eid-viewer/Makefile.in
     ./configure --prefix=/usr --libexecdir=/usr/bin
     make
 }
 
 package() {
-    cd "$pkgname-$pkgver-v$pkgver"
-    make install DESTDIR="$pkgdir"
+    cd "${pkgname}-${pkgver}-v${pkgver}"
+    make install DESTDIR="${pkgdir}"
 }
