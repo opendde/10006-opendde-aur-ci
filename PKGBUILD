@@ -1,16 +1,16 @@
-# Maintainer: Niels Abspoel <aboe76@gmail.com>
-# Contributor:
+# Maintainer: Andreas Schulz <andi.schulz@me.com>>
+# Contributor: Niels Abspoel <aboe76@gmail.com>
 
 pkgname=python-poyo
 _pkgname=poyo
 pkgver=0.4.2
-pkgrel=1
+pkgrel=2
 pkgdesc="A YAML Parser for Python"
 arch=(any)
 url="https://github.com/hackebrot/poyo"
 license=('MIT')
 groups=('devel')
-depends=('python')
+depends=('python' 'python-setuptools')
 makedepends=()
 provides=()
 conflicts=()
@@ -25,5 +25,3 @@ package() {
   python setup.py install --root="$pkgdir/" --optimize=1
   install -D -m644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
-
-# vim:set ts=2 sw=2 et:
