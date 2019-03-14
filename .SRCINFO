@@ -1,14 +1,18 @@
 pkgbase = python-whichcraft
 	pkgdesc = Cross-platform cross-python shutil.which functionality
-	pkgver = 0.4.0
+	pkgver = 0.5.1
 	pkgrel = 1
 	url = https://github.com/pydanny/whichcraft
 	arch = any
 	groups = devel
 	license = BSD
+	makedepends = python
+	makedepends = python-setuptools
+	depends = python
+	depends = python-setuptools
 	options = !emptydirs
-	source = https://github.com/pydanny/whichcraft/archive/0.4.0.tar.gz
-	md5sums = f35a3aa2df24536c453e27131182b49d
+	source = https://github.com/pydanny/whichcraft/archive/0.5.1.tar.gz
+	md5sums = 8e74e0e269222ec74462343ac1eea3b7
 
 pkgname = python-whichcraft
 
