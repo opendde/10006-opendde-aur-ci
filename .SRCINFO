@@ -1,6 +1,6 @@
 pkgbase = python-backports.csv
 	pkgdesc = Backport of Python 3 csv module.
-	pkgver = 1.0.6
+	pkgver = 1.0.7
 	pkgrel = 2
 	url = https://github.com/ryanhiebert/backports.csv
 	arch = any
@@ -9,8 +9,8 @@ pkgbase = python-backports.csv
 	depends = python
 	provides = python-backports.csv
 	options = !emptydirs
-	source = python-backports.csv-1.0.6.zip::https://github.com/ryanhiebert/backports.csv/archive/1.0.6.zip
-	md5sums = f3fa0a34a9e49dc5df78e7b487e94900
+	source = python-backports.csv-1.0.7.zip::https://github.com/ryanhiebert/backports.csv/archive/1.0.7.zip
+	md5sums = e9b594a3d94317aaf51f5c3c79a8feaa
 
 pkgname = python-backports.csv
 

@@ -1,7 +1,7 @@
 # Maintainer: fzerorubigd <fzero@rubi.gd>
 _pkgmain=backports.csv
 pkgname=python-$_pkgmain
-pkgver=1.0.6
+pkgver=1.0.7
 pkgrel=2
 pkgdesc="Backport of Python 3 csv module."
 arch=('any')
@@ -19,4 +19,4 @@ package() {
   python setup.py install --root="$pkgdir/" --optimize=1
 }
 
-md5sums=('f3fa0a34a9e49dc5df78e7b487e94900')
+md5sums=('e9b594a3d94317aaf51f5c3c79a8feaa')
