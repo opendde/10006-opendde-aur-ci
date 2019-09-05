@@ -7,7 +7,7 @@ arch=('any')
 url='https://stefanbirkner.github.io/system-rules/'
 license=('CPL')
 depends=('junit')
-source=("http://search.maven.org/remotecontent?filepath=com/github/stefanbirkner/${pkgname#junit-}/$pkgver/${pkgname#junit-}-$pkgver.jar")
+source=("https://search.maven.org/remotecontent?filepath=com/github/stefanbirkner/${pkgname#junit-}/$pkgver/${pkgname#junit-}-$pkgver.jar")
 sha512sums=('57fb278d3df230e36a246a2485f60713b7b8e7d5f25bb6be892bfba93360dec6ac0018f0f38c7554261fd36d899df10858318a05b2b30445b233f262848ff38b')
 
 package() {
