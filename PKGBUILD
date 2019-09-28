@@ -1,4 +1,4 @@
-# Maintainer: Jonas Witschel <diabonas at gmx dot de>
+# Maintainer: Jonas Witschel <diabonas@archlinux.org>
 pkgname=junit-system-rules
 pkgver=1.19.0
 pkgrel=1
