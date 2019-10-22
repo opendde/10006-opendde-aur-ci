@@ -2,11 +2,11 @@
 
 pkgname=python-whichcraft
 _pkgname=whichcraft
-pkgver=0.5.1
+pkgver=0.6.1
 pkgrel=1
 pkgdesc="Cross-platform cross-python shutil.which functionality"
 arch=('any')
-url="https://github.com/pydanny/whichcraft"
+url="https://github.com/cookiecutter/whichcraft"
 license=('BSD')
 groups=('devel')
 depends=('python' 'python-setuptools')
@@ -16,8 +16,8 @@ conflicts=()
 replaces=()
 backup=()
 options=(!emptydirs)
-source=("https://github.com/pydanny/${_pkgname}/archive/${pkgver}.tar.gz")
-md5sums=('8e74e0e269222ec74462343ac1eea3b7')
+source=("https://github.com/cookiecutter/${_pkgname}/archive/${pkgver}.tar.gz")
+md5sums=('bc6a8ec812e66e27ac1b906859c464e5')
 
 package() {
   cd "$srcdir/${_pkgname}-${pkgver}"
