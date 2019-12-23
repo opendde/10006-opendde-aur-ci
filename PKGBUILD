@@ -1,21 +1,20 @@
-# Maintainer: Tom Willemse <tom@ryuslash.org>
+# Contributor: Tom Willemse <tom@ryuslash.org>
 
-_python=python
-_name=ansicolors
-
-pkgname=$_python-ansicolors
-pkgver=1.0.2
+pkgname=python-ansicolors
+_pkgname=ansicolors
+pkgver=1.1.8
 pkgrel=1
 pkgdesc="ANSI colors for Python"
-depends=('python')
 arch=('any')
-source=("http://pypi.python.org/packages/source/${_name::1}/${_name}/${_name}-${pkgver}.tar.gz")
-md5sums=('d3a19fcd75c89772360e0d2b693fc50f')
-url="http://github.com/verigak/colors/"
-license=('custom:ISC')
+url="https://github.com/jonathaneunice/colors/"
+license=('ISC')
+depends=('python')
+makedepends=("python-distribute")
+source=("https://files.pythonhosted.org/packages/76/31/7faed52088732704523c259e24c26ce6f2f33fbeff2ff59274560c27628e/$_pkgname-$pkgver.zip")
+sha512sums=('5afc4a7a6dc4028ad3db80c0e25e340482295ba41082107287abe7f20f6d4a2d0d17bccf269d7ac71482b7944134487f9238bb2c22c8a2f0bf9ea8288e543378')
 
 package() {
-    cd "${srcdir}/${_name}-${pkgver}"
-    $_python setup.py install --root="$pkgdir" --optimize=1
-    install -Dm644 LICENSE "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+  cd "$srcdir/$_pkgname-$pkgver"
+  python setup.py install --root="$pkgdir/" --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
