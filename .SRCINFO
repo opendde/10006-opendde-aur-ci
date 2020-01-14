@@ -1,0 +1,22 @@
+pkgbase = python-git-url-parse
+	pkgdesc = A simple GIT URL parser similar to giturlparse.py.)
+	pkgver = 1.2.2
+	pkgrel = 1
+	url = https://github.com/coala/git-url-parse
+	arch = any
+	license = MIT
+	makedepends = python
+	makedepends = python-setuptools
+	makedepends = python-pbr
+	makedepends = python2
+	makedepends = python2-setuptools
+	makedepends = python2-pbr
+	source = git-url-parse-1.2.2.tar.gz::https://github.com/coala/git-url-parse/archive/1.2.2.tar.gz
+	sha256sums = 50e58f899449212409195558b066e1f7cc542c8dd2784bccaffd5ba246d1e2c9
+
+pkgname = python-git-url-parse
+	depends = python
+
+pkgname = python2-git-url-parse
+	depends = python2
+
