@@ -20,7 +20,8 @@ optdepends=(
   'git: status of repository'
   'mercurial: status of repository'
   'systemd: virtualization detection'
-  'openssh: ssh detection')
+  'openssh: ssh detection'
+)
 makedepends=('git')
 install=zsh-theme-powerlevel10k.install
 source=("https://github.com/romkatv/powerlevel10k/archive/v${pkgver}.tar.gz")
@@ -37,14 +38,14 @@ package()
   install -D -m644 README.md "${pkgdir}/usr/share/doc/${pkgname}/README.md"
 
   # Install the theme
-  install -D -m644 powerlevel10k.zsh-theme "${pkgdir}/usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme"
+  install -D -m644 powerlevel10k.zsh-theme "${pkgdir}/usr/share/${pkgname}/powerlevel10k.zsh-theme"
 
   # Install the utilities
-  install -D -m755 prompt_powerlevel10k_setup "${pkgdir}/usr/share/zsh-theme-powerlevel10k/prompt_powerlevel10k_setup"
-  install -D -m644 p9k-vs-p10k.cast "${pkgdir}/usr/share/zsh-theme-powerlevel10k/p9k-vs-p10k.cast"
-  install -d "${pkgdir}/usr/share/zsh-theme-powerlevel10k/config"
-  cp -R config "${pkgdir}/usr/share/zsh-theme-powerlevel10k/"
-  install -d "${pkgdir}/usr/share/zsh-theme-powerlevel10k/gitstatus/bin"
-  cp -R gitstatus "${pkgdir}/usr/share/zsh-theme-powerlevel10k/"
-  cp -R internal "${pkgdir}/usr/share/zsh-theme-powerlevel10k/"
+  install -D -m755 prompt_powerlevel10k_setup "${pkgdir}/usr/share/${pkgname}/prompt_powerlevel10k_setup"
+  install -D -m644 p9k-vs-p10k.cast "${pkgdir}/usr/share/${pkgname}/p9k-vs-p10k.cast"
+  install -d "${pkgdir}/usr/share/${pkgname}/config"
+  cp -R config "${pkgdir}/usr/share/${pkgname}/"
+  install -d "${pkgdir}/usr/share/${pkgname}/gitstatus/bin"
+  cp -R gitstatus "${pkgdir}/usr/share/${pkgname}/"
+  cp -R internal "${pkgdir}/usr/share/${pkgname}/"
 }
