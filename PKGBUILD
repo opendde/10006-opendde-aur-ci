@@ -43,8 +43,8 @@ package()
   install -D -m755 prompt_powerlevel10k_setup "${pkgdir}/usr/share/zsh-theme-powerlevel10k/prompt_powerlevel10k_setup"
   install -D -m644 p9k-vs-p10k.cast "${pkgdir}/usr/share/zsh-theme-powerlevel10k/p9k-vs-p10k.cast"
   install -d "${pkgdir}/usr/share/zsh-theme-powerlevel10k/config"
-  cp -R config "$pkgdir"/usr/share/zsh-theme-powerlevel10k/
+  cp -R config "${pkgdir}/usr/share/zsh-theme-powerlevel10k/"
   install -d "${pkgdir}/usr/share/zsh-theme-powerlevel10k/gitstatus/bin"
-  cp -R gitstatus "$pkgdir"/usr/share/zsh-theme-powerlevel10k/
-  cp -R internal "$pkgdir"/usr/share/zsh-theme-powerlevel10k/
+  cp -R gitstatus "${pkgdir}/usr/share/zsh-theme-powerlevel10k/"
+  cp -R internal "${pkgdir}/usr/share/zsh-theme-powerlevel10k/"
 }
