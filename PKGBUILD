@@ -1,4 +1,5 @@
 # Maintainer: Jeff Henson <jeff@henson.io>
+# Contributor: Ron Asimi <ron dot asimi at gmail dot com>
 
 pkgname=zsh-theme-powerlevel10k
 pkgver=1.1
