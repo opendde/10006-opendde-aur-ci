@@ -2,7 +2,7 @@
 
 pkgname=zsh-theme-powerlevel10k
 pkgver=1.1
-pkgrel=1
+pkgrel=2
 pkgdesc="Powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience."
 arch=('any')
 url='https://github.com/romkatv/powerlevel10k'
@@ -22,7 +22,6 @@ optdepends=(
   'systemd: virtualization detection'
   'openssh: ssh detection'
 )
-makedepends=('git')
 install=zsh-theme-powerlevel10k.install
 source=("https://github.com/romkatv/powerlevel10k/archive/v${pkgver}.tar.gz")
 sha256sums=('737471d8ad3a46a5a7adde526c981dcb724c54a76e8607eb44b6b7d1fbbf30ef')
