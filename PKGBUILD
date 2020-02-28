@@ -3,7 +3,7 @@
 
 pkgname=zsh-theme-powerlevel10k
 pkgver=1.2.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience."
 arch=('any')
 url='https://github.com/romkatv/powerlevel10k'
@@ -39,9 +39,11 @@ package()
 
   # Install the theme
   install -D -m644 powerlevel10k.zsh-theme "${pkgdir}/usr/share/${pkgname}/powerlevel10k.zsh-theme"
+  install -D -m644 powerlevel9k.zsh-theme "${pkgdir}/usr/share/${pkgname}/powerlevel9k.zsh-theme"
 
   # Install the utilities
   install -D -m755 prompt_powerlevel10k_setup "${pkgdir}/usr/share/${pkgname}/prompt_powerlevel10k_setup"
+  install -D -m755 prompt_powerlevel9k_setup "${pkgdir}/usr/share/${pkgname}/prompt_powerlevel9k_setup"
   install -d "${pkgdir}/usr/share/${pkgname}/config"
   cp -R config "${pkgdir}/usr/share/${pkgname}/"
   install -d "${pkgdir}/usr/share/${pkgname}/gitstatus/bin"
