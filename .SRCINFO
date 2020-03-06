@@ -1,7 +1,7 @@
 pkgbase = zsh-theme-powerlevel10k
 	pkgdesc = Powerlevel10k is a theme for Zsh. It emphasizes speed, flexibility and out-of-the-box experience.
-	pkgver = 1.2.0
-	pkgrel = 2
+	pkgver = 1.3.0
+	pkgrel = 1
 	url = https://github.com/romkatv/powerlevel10k
 	install = zsh-theme-powerlevel10k.install
 	arch = any
@@ -19,8 +19,8 @@ pkgbase = zsh-theme-powerlevel10k
 	optdepends = mercurial: status of repository
 	optdepends = systemd: virtualization detection
 	optdepends = openssh: ssh detection
-	source = https://github.com/romkatv/powerlevel10k/archive/v1.2.0.tar.gz
-	sha256sums = 0dd3af523643e3238a1f92e5c2b540ce06d350dd15544e0926144b6cf23ea58e
+	source = https://github.com/romkatv/powerlevel10k/archive/v1.3.0.tar.gz
+	sha256sums = 0a40b7b25f848b72f83b0d2d2d429c22a2c08d2ea23515c78fdaf0060b201948
 
 pkgname = zsh-theme-powerlevel10k
 
