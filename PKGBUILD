@@ -5,7 +5,7 @@ set -u
 _pyver="python"
 _pybase='behave'
 pkgname="${_pyver}-${_pybase}"
-pkgver='1.2.6'
+pkgver='1.2.7.dev1'
 pkgrel='1'
 pkgdesc='behaviour-driven development, Python style'
 arch=('any')
@@ -25,9 +25,9 @@ makedepends=("${_pyver}" "${_pyver}-distribute") # same as python-setuptools
 _srcdir="${_pybase}-${pkgver}"
 _verwatch=("${url}/releases" "${url#*github.com}/archive/v\(.*\)\.tar\.gz" 'l')
 source=("${_pybase}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
-#_verwatch=("https://pypi.python.org/simple/${_pybase//_/-}/" "${_pybase}-\([0-9\.]\+\)\.tar\.gz" 't')
+#_verwatch=("https://pypi.org/simple/${_pybase//_/-}/" "${_pybase}-\([0-9\.]\+\)\.tar\.gz" 't')
 #source=("https://pypi.python.org/packages/source/${_pybase: 0:1}/${_pybase}/${_pybase}-${pkgver}.tar.gz")
-sha256sums=('5178c98857830810d7f7d8b35207e0e4f72999810c1241dec39e753898fab796')
+sha256sums=('52da02b6db8f2a7f8b5675b4b970c665cf37b9542e57381b1934743eea373f37')
 
 build() {
   set -u
