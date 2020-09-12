@@ -6,6 +6,7 @@ pkgbase = pc-ble-driver
 	arch = x86_64
 	license = custom
 	makedepends = cmake
+	makedepends = git
 	options = staticlibs
 	source = https://github.com/NordicSemiconductor/pc-ble-driver/archive/v4.1.2.tar.gz
 	source = git+https://github.com/Microsoft/vcpkg.git

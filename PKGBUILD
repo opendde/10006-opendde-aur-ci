@@ -8,7 +8,7 @@ arch=('x86_64')
 url="https://github.com/NordicSemiconductor/pc-ble-driver"
 license=('custom')
 depends=()
-makedepends=('cmake')
+makedepends=('cmake' 'git')
 options=('staticlibs')
 source=("https://github.com/NordicSemiconductor/pc-ble-driver/archive/v${pkgver}.tar.gz"
 	"git+https://github.com/Microsoft/vcpkg.git")
