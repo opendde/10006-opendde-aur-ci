@@ -1,4 +1,4 @@
-# Maintainer: Spyros Stathopoulos <foucault.online@gmail.com>
+# Maintainer: Spyros Stathopoulos <spystath@gmail.com>
 
 pkgname=python-boltons
 _pkgname=boltons
@@ -9,6 +9,7 @@ arch=('any')
 url="https://github.com/mahmoud/boltons"
 license=('BSD')
 depends=('python')
+makedepends=('python-setuptools')
 source=("https://github.com/mahmoud/${_pkgname}/archive/${pkgver}.tar.gz")
 sha1sums=('4c416a0e5d0e512095fb0facdc97b0ec99d48555')
 
