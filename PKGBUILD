@@ -2,7 +2,7 @@
 
 pkgname=python-lru-dict
 _pkgname=lru-dict
-pkgver=1.1.6
+pkgver=1.1.7
 pkgrel=1
 pkgdesc="A dict like LRU container."
 arch=('x86_64')
@@ -13,7 +13,7 @@ checkdepends=()
 optdepends=()
 makedepends=('python-setuptools')
 source=("https://pypi.org/packages/source/${_pkgname:0:1}/$_pkgname/$_pkgname-$pkgver.tar.gz")
-sha256sums=('365457660e3d05b76f1aba3e0f7fedbfcd6528e97c5115a351ddd0db488354cc')
+sha256sums=('45b81f67d75341d4433abade799a47e9c42a9e22a118531dcb5e549864032d7c')
 
 build() {
   cd "$srcdir/$_pkgname-$pkgver"
