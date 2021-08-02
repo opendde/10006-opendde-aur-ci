@@ -1,6 +1,6 @@
 pkgbase = python-magic-filter
 	pkgdesc = A filter package based on dynamic attribute getter
-	pkgver = 1.0.0a1
+	pkgver = 1.0.0
 	pkgrel = 1
 	url = https://github.com/aiogram/magic-filter
 	arch = any
@@ -9,9 +9,7 @@ pkgbase = python-magic-filter
 	depends = python>=3.6.2
 	provides = python-magic-filter
 	conflicts = python-magic-filter
-	conflicts = python-magic-filter-git
-	source = https://pypi.python.org/packages/source/m/magic-filter/magic-filter-1.0.0a1.tar.gz
-	sha256sums = af77522f1ab2a7aac6a960fb731097ada793da18f7ad96b1e29c11bd9c2d09cd
+	source = https://pypi.python.org/packages/source/m/magic-filter/magic-filter-1.0.0.tar.gz
+	sha256sums = 6c1e8d185cd540606555a07a7c78d9c36bf0c97b9cd6e0a00da65dd38d56026f
 
 pkgname = python-magic-filter
-
