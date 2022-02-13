@@ -1,30 +1,25 @@
 # Maintainer: piernov <piernov@piernov.org>
 
 pkgname=pc-ble-driver
-pkgver=4.1.2
+pkgver=4.1.4
 pkgrel=1
 pkgdesc="C/C++ libraries for Bluetooth Low Energy nRF5 SoftDevice serialization."
 arch=('x86_64')
 url="https://github.com/NordicSemiconductor/pc-ble-driver"
 license=('custom')
-depends=()
-makedepends=('cmake' 'git')
+depends=('spdlog')
+makedepends=('cmake' 'asio' 'catch2')
 options=('staticlibs')
 source=("https://github.com/NordicSemiconductor/pc-ble-driver/archive/v${pkgver}.tar.gz"
-	"git+https://github.com/Microsoft/vcpkg.git")
-md5sums=('4e6add958cdd779b1d9331775c40d682'
-         'SKIP')
+	"https://github.com/NordicSemiconductor/pc-ble-driver/pull/272.patch")
+md5sums=('70b45aef652ca4423f581efc14a3d077'
+         '4fc0fa05053c066267da4feeb356b24e')
 
 prepare() {
-	cd vcpkg
-	 ./bootstrap-vcpkg.sh
-	 export VCPKG_ROOT="$(pwd)"
-	 export PATH="${VCPKG_ROOT}:${PATH}"
-
-	cd ../"$pkgname-$pkgver"
+	cd "$pkgname-$pkgver"
+	patch -p1 < "$srcdir"/272.patch # https://github.com/NordicSemiconductor/pc-ble-driver/pull/272
 	mkdir -p build
 	cd build
-	vcpkg install asio catch2 spdlog
 }
 
 build() {
