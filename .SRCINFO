@@ -1,6 +1,6 @@
 pkgbase = neovim-lsp_signature
 	pkgdesc = Neovim plugin for showing LSP signature hints
-	pkgver = 0.1.1
+	pkgver = 0.2.0
 	pkgrel = 1
 	url = https://github.com/ray-x/lsp_signature.nvim
 	install = lsp_signature.install
@@ -8,9 +8,9 @@ pkgbase = neovim-lsp_signature
 	groups = neovim-plugins
 	license = Apache
 	checkdepends = neovim-plenary
-	depends = neovim>=0.5.0
+	depends = neovim
 	provides = neovim-lsp-signature
-	source = neovim-lsp_signature-0.1.1.tar.gz::https://github.com/ray-x/lsp_signature.nvim/archive/v0.1.1.tar.gz
-	sha256sums = d8b2fe44f82733538f33042c399fa6b896639a3c3604e423b7752fd86fd367b6
+	source = neovim-lsp_signature-0.2.0.tar.gz::https://github.com/ray-x/lsp_signature.nvim/archive/v0.2.0.tar.gz
+	sha256sums = f8583779be55ed09c851e2d2d435373c4125a04bd1c98ed7a73f6bb50487ecc9
 
 pkgname = neovim-lsp_signature
