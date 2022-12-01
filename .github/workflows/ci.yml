@@ -1,0 +1,21 @@
+name: Build 0
+on:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron: '0 1 * * *'
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/archlinux365/9318-archlinux-docker/root:latest
+      volumes:
+        - /home/runner/work/alterdir/alterdir:/tmp/alterdir
+      options: "--privileged"
+    steps:
+      - uses: actions/checkout@v2
+      - name: 2. build
+        run: ./6.ci.sh 0
+
